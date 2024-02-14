@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PlantCardViewModel : ObservableObject{
+class PlantCardViewModel : ObservableObject {
     
     @Published var PlantCards : [PlantCard] = []
     @Published var isShowingSheet = false
@@ -22,11 +22,11 @@ class PlantCardViewModel : ObservableObject{
     
     func addPlant(PlantName : String, PlantType : String, PotSize : String, Light : String, Watering : Int){
         
-        
-        
         let newPlant = PlantCard(PlantName: PlantName, PlantType: PlantType, PotSize: PotSize, Light: Light, Watering: Watering)
         
         PlantCards.append(newPlant)
+        print("Plant added: \(newPlant)")
+
         
     }
     

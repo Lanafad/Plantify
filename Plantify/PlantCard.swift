@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlantCard {
+struct PlantCard : Hashable{
 
     var PlantName : String
     var PlantType : String

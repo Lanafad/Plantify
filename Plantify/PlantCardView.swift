@@ -9,7 +9,13 @@ import SwiftUI
 
 struct PlantCardView: View {
     var plantCard : PlantCard
+    @ObservedObject var plantCardViewModel : PlantCardViewModel
+
     var body: some View {
+        
+        VStack{
+            Text(plantCard.PlantName)
+        }
         ZStack{
             RoundedRectangle(cornerSize: CGSize(width: 16, height: 16))
                 .fill(.cardBackground)

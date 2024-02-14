@@ -10,35 +10,56 @@ import SwiftUI
 struct PlantSheet: View {
     
     @ObservedObject var plantCardViewModel : PlantCardViewModel
-    @State  var PickerSelection : String
+    @State var planttype = ""
+    @State var plantlight = ""
+    @State var plantpot = ""
 
     var body: some View {
-        ZStack{
+        VStack{
             
-            Button(action: {}, label: {
+            
+            Button(action: {
+                print("Adding plant...")
+                    plantCardViewModel.addPlant(PlantName: "voo", PlantType: "Succulents", PotSize: "4-6 inch", Light: "direct light", Watering: 8)
+                    print("Plant added.")
+                    plantCardViewModel.isShowingSheet = false
+            }, label: {
                 Text("Button")
             })
-            
-            Picker( "mm", selection: $PickerSelection  , content: {
-                
-                ForEach(plantCardViewModel.PlantTypesArray.indices){ index in
-                    Text(plantCardViewModel.PlantTypesArray[index])
-                }
-            })           
-            
-            Picker( "mm", selection: $PickerSelection  , content: {
-                
-                ForEach(plantCardViewModel.LightingArray.indices){ index in
-                    Text(plantCardViewModel.LightingArray[index])
-                }
-            })           
-            
-            Picker( "mm", selection: $PickerSelection  , content: {
-                
-                ForEach(plantCardViewModel.PotSizeArray.indices){ index in
-                    Text(plantCardViewModel.PotSizeArray[index])
-                }
-            })
+//
+//            
+//            Picker( "mm", selection: $planttype  , content: {
+//                
+//                ForEach(plantCardViewModel.PlantTypesArray.indices){ index in
+//                    Text(plantCardViewModel.PlantTypesArray[index])
+//                }
+//            })   
+//            
+//            
+//            Picker( "mm", selection: $plantlight  , content: {
+//                
+//                ForEach(plantCardViewModel.LightingArray.indices){ index in
+//                    Text(plantCardViewModel.LightingArray[index])
+//                }
+//            })   
+//            
+//            
+//            Picker( "mm", selection: $plantpot  , content: {
+//                
+//                ForEach(plantCardViewModel.PotSizeArray.indices){ index in
+//                    Text(plantCardViewModel.PotSizeArray[index])
+//                }
+//            })
+//            
+//            
+//            Button(action: {
+//                
+//                plantCardViewModel.addPlant(PlantName: planttype, PlantType: planttype, PotSize: plantpot, Light: plantlight, Watering: 4)
+//                plantCardViewModel.isShowingSheet = false
+//                
+//            }, label: {
+//                Text("Button")
+//            })
             
         }
     }
