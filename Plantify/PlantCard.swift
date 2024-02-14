@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Plant {
+struct PlantCard {
 
     var PlantName : String
     var PlantType : String

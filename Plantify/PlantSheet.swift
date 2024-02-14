@@ -8,11 +8,42 @@
 import SwiftUI
 
 struct PlantSheet: View {
+    
+    @ObservedObject var plantCardViewModel : PlantCardViewModel
+    @State  var PickerSelection : String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            
+            Button(action: {}, label: {
+                Text("Button")
+            })
+            
+            Picker( "mm", selection: $PickerSelection  , content: {
+                
+                ForEach(plantCardViewModel.PlantTypesArray.indices){ index in
+                    Text(plantCardViewModel.PlantTypesArray[index])
+                }
+            })           
+            
+            Picker( "mm", selection: $PickerSelection  , content: {
+                
+                ForEach(plantCardViewModel.LightingArray.indices){ index in
+                    Text(plantCardViewModel.LightingArray[index])
+                }
+            })           
+            
+            Picker( "mm", selection: $PickerSelection  , content: {
+                
+                ForEach(plantCardViewModel.PotSizeArray.indices){ index in
+                    Text(plantCardViewModel.PotSizeArray[index])
+                }
+            })
+            
+        }
     }
 }
-
-#Preview {
-    PlantSheet()
-}
+//
+//#Preview {
+//    PlantSheet()
+//}
