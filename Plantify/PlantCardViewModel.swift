@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class PlantCardViewModel : ObservableObject {
     
@@ -18,11 +19,16 @@ class PlantCardViewModel : ObservableObject {
     @Published var LightingArray = ["direct light", "partial light", "no light"]
     @Published var Watering = 0
     
+     var checkCardViewModel = CheckCardViewModel()
+
 
     
     func addPlant(PlantName : String, PlantType : String, PotSize : String, Light : String, Watering : Int){
         
-        let newPlant = PlantCard(PlantName: PlantName, PlantType: PlantType, PotSize: PotSize, Light: Light, Watering: Watering)
+        
+        
+        
+        let newPlant = PlantCard(PlantName: PlantName, PlantType: PlantType, PotSize: PotSize, Light: Light, Watering: Watering, CheckCards: checkCardViewModel.addCheckCard(plantName: PlantName, plantType: PlantType))
         
         PlantCards.append(newPlant)
         print("Plant added: \(newPlant)")

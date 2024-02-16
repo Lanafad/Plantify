@@ -11,7 +11,7 @@ struct MainView: View {
     @State private var PickerSelection = 0
     @State private var pickerSelection = ""
     @StateObject var plantCardViewModel = PlantCardViewModel()
-    @StateObject var checkCardViewModel = CheckCardViewModel()
+    @ObservedObject var checkCardViewModel = CheckCardViewModel()
 
 
     var body: some View {
@@ -50,21 +50,7 @@ struct MainView: View {
 
                 
                     
-                    if (!plantCardViewModel.PlantCards.isEmpty){
-                        
-                        VStack{
-                            
-
-                        
-                        ForEach(checkCardViewModel.checkCards, id: \.self){
-                            CheckCard in CheckCardView(checkCard: CheckCard, checkCardViewModel: self.checkCardViewModel)
-                        }
-                        
-                        
-                    }
-                    .frame(width: 350, height: 270, alignment: .top)
-
-                    } else {
+                    if (checkCardViewModel.checkCards.isEmpty){
                         
                         VStack{
 
@@ -79,6 +65,20 @@ struct MainView: View {
                             .foregroundColor(.subtitleText)
                         }
                         .frame(width: 350, height: 270, alignment: .center)
+                        
+
+                    } else {
+                        
+
+                        VStack{
+
+                            ForEach(checkCardViewModel.checkCards, id: \.self){
+                            CheckCard in CheckCardView(checkCard: CheckCard, checkCardViewModel: checkCardViewModel)
+                        }
+                        
+                        
+                    }
+                    .frame(width: 350, height: 270, alignment: .top)
                     
                     }
                     
@@ -127,7 +127,6 @@ struct MainView: View {
                             + Text(Image(systemName: "plus"))
                                 .font(.system(size: 22))
                                 .foregroundColor(.buttonsBackground)
-                            
                             + Text(" to add one")
                                 .font(.system(size: 17))
                                 .foregroundColor(.subtitleText)
@@ -145,7 +144,7 @@ struct MainView: View {
                             
                             
                             ForEach(plantCardViewModel.PlantCards, id: \.self){
-                                PlantCard in PlantCardView(plantCard: PlantCard, plantCardViewModel: self.plantCardViewModel)
+                                PlantCard in PlantCardView(plantCard: PlantCard, plantCardViewModel: plantCardViewModel)
                             }
                         }
                     }

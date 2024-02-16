@@ -23,7 +23,6 @@ struct PlantSheet: View {
                 print("Adding plant...")
                     plantCardViewModel.addPlant(PlantName: "voo", PlantType: "Succulents", PotSize: "4-6 inch", Light: "direct light", Watering: 8)
                     print("Plant added.")
-                checkCardViewModel.addCheckCard(plantName: "voo", plantType: "Succulents")
                     plantCardViewModel.isShowingSheet = false
             }, label: {
                 Text("Button")

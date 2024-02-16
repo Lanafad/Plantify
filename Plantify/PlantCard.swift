@@ -14,5 +14,6 @@ struct PlantCard : Hashable{
     var PotSize : String
     var Light : String
     var Watering : Int
+    var CheckCards : CheckCard
 }
 

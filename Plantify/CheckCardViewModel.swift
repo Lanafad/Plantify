@@ -11,10 +11,13 @@ class CheckCardViewModel: ObservableObject{
     @Published var checkCards: [CheckCard] = []
 
     
-    func addCheckCard(plantName : String , plantType : String){
+    func addCheckCard(plantName : String , plantType : String) -> CheckCard{
         let newCard = CheckCard(plantName: plantName, plantType: plantType)
         
         checkCards.append(newCard)
+        print("check card added \(checkCards)")
+        
+        return newCard
     }
     
     func wateringDone(checkCard : CheckCard){
