@@ -9,13 +9,11 @@ import SwiftUI
 
 struct PlantCardView: View {
     var plantCard : PlantCard
-    @ObservedObject var plantCardViewModel : PlantCardViewModel
+    @StateObject var plantCardViewModel : PlantCardViewModel
 
     var body: some View {
         
-        VStack{
-            Text(plantCard.PlantName)
-        }
+
         ZStack{
             RoundedRectangle(cornerSize: CGSize(width: 16, height: 16))
                 .fill(.cardBackground)
@@ -40,7 +38,7 @@ struct PlantCardView: View {
                     
                     RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
                         .fill(.tagsBackground)
-                        .frame(width: 69, height: 21) 
+                        .frame(height: 21)
                         .overlay(
                             HStack{
                                 Image(systemName: "leaf")
@@ -75,18 +73,19 @@ struct PlantCardView: View {
                         .frame(width: 71)
                     
                     Circle()
-                        .trim(from: 0, to: 0.25)
+                        .trim(from: 0, to: 0.5)
                         .stroke(
                             Color.buttonsBackground,
                             style: StrokeStyle(lineWidth: 4, lineCap: .round))
                         .frame(width: 71)
+                        .rotationEffect(.degrees(-90))
                     
                     VStack{
                         Image(systemName: "drop")
                             .font(.system(size: 20))
                             .foregroundColor(.icons)
                         
-                        Text("\(plantCard.Watering)")
+                        Text("\(plantCard.Watering) / week")
                             .font(.caption2)
                             .foregroundColor(.subtitleText)
                     }
@@ -95,17 +94,7 @@ struct PlantCardView: View {
 
             }
             .frame(width: 350, height: 128)
-            .padding()
 
         }
     }
 }
-
-
-
-
-//
-//
-//#Preview {
-//    PlantCardView()
-//}

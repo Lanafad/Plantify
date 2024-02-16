@@ -5,14 +5,24 @@
 //  Created by lana alfaadhel on 16/02/2024.
 //
 
-import SwiftUI
+import Foundation
 
-struct CheckCardViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class CheckCardViewModel: ObservableObject{
+    @Published var checkCards: [CheckCard] = []
+
+    
+    func addCheckCard(plantName : String , plantType : String){
+        let newCard = CheckCard(plantName: plantName, plantType: plantType)
+        
+        checkCards.append(newCard)
     }
-}
-
-#Preview {
-    CheckCardViewModel()
+    
+    func wateringDone(checkCard : CheckCard){
+        if let index = checkCards.firstIndex(of: checkCard){
+            checkCards.remove(at: index)
+        }
+    }
+    
+    
+    
 }

@@ -5,14 +5,12 @@
 //  Created by lana alfaadhel on 16/02/2024.
 //
 
-import SwiftUI
 
-struct CheckCard: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct CheckCard : Hashable {
+    
+    var plantName : String
+    var plantType : String
+    
+
 }
 
-#Preview {
-    CheckCard()
-}

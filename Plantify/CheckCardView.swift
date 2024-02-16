@@ -8,11 +8,47 @@
 import SwiftUI
 
 struct CheckCardView: View {
+    
+    var checkCard : CheckCard
+    @StateObject var checkCardViewModel : CheckCardViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            
+            RoundedRectangle(cornerSize: CGSize(width: 16, height: 16))
+                .fill(Color(.cardBackground))
+                .frame(width: 350, height: 66)
+            
+            HStack{
+                
+                Button(action: {
+                    checkCardViewModel.wateringDone(checkCard: checkCard)
+                }, label: {
+                    
+                    Circle()
+                        .stroke(
+                            Color.icons,
+                            style: StrokeStyle(lineWidth: 2))
+                        .frame(width: 24,height: 24)
+                        .padding()
+                })
+                
+               
+                
+                VStack(alignment: .leading){
+                    Text("\(checkCard.plantName)")
+                        .font(.title3)
+                        .foregroundColor(.bodyText)
+                    
+                    Text("\(checkCard.plantType)")
+                        .font(.caption)
+                        .foregroundColor(.subtitleText)
+                }
+                
+            }
+            .frame(width: 350, height: 66, alignment: .leading)
+
+        }
     }
 }
 
-#Preview {
-    CheckCardView()
-}

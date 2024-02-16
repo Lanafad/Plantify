@@ -11,6 +11,8 @@ struct MainView: View {
     @State private var PickerSelection = 0
     @State private var pickerSelection = ""
     @StateObject var plantCardViewModel = PlantCardViewModel()
+    @StateObject var checkCardViewModel = CheckCardViewModel()
+
 
     var body: some View {
         
@@ -44,22 +46,44 @@ struct MainView: View {
                         .tag(2)
                 }
                 .pickerStyle(.segmented)
-                .colorMultiply(.buttonsBackground)
-                .background(.cardBackground)
+                .padding(.bottom)
+
                 
-                VStack{
                     
-                    Image(systemName: "zzz")
-                        .font(.system(size: 32))
-                        .foregroundColor(.icons)
-                        .padding()
+                    if (!plantCardViewModel.PlantCards.isEmpty){
+                        
+                        VStack{
+                            
+
+                        
+                        ForEach(checkCardViewModel.checkCards, id: \.self){
+                            CheckCard in CheckCardView(checkCard: CheckCard, checkCardViewModel: self.checkCardViewModel)
+                        }
+                        
+                        
+                    }
+                    .frame(width: 350, height: 270, alignment: .top)
+
+                    } else {
+                        
+                        VStack{
+
+                        
+                        Image(systemName: "zzz")
+                            .font(.system(size: 32))
+                            .foregroundColor(.icons)
+                            .padding()
+                        
+                        Text("You don't have any plants that need watering!")
+                            .font(.caption)
+                            .foregroundColor(.subtitleText)
+                        }
+                        .frame(width: 350, height: 270, alignment: .center)
                     
-                    Text("You don't have any plants that need watering!")
-                        .font(.caption)
-                        .foregroundColor(.subtitleText)
+                    }
                     
-                }
-                .frame(height: 270)
+
+            
                 
                 HStack{
                     Text("Office Plants")
@@ -80,13 +104,12 @@ struct MainView: View {
                             .foregroundColor(.buttonsBackground)
                     })
                     .sheet(isPresented: $plantCardViewModel.isShowingSheet, content: {
-                        PlantSheet(plantCardViewModel: PlantCardViewModel())
+                        PlantSheet(plantCardViewModel: plantCardViewModel, checkCardViewModel: checkCardViewModel)
                     })
                     
 
                 }
                 
-                ScrollView{
                     
                     
                     if (plantCardViewModel.PlantCards.isEmpty){
@@ -117,12 +140,17 @@ struct MainView: View {
                         }
                         .frame(height: 270)
                     } else {
-                        ForEach(plantCardViewModel.PlantCards, id: \.self){
-                            PlantCard in PlantCardView(            plantCard: PlantCard, plantCardViewModel: self.plantCardViewModel)
+                        
+                        ScrollView{
+                            
+                            
+                            ForEach(plantCardViewModel.PlantCards, id: \.self){
+                                PlantCard in PlantCardView(plantCard: PlantCard, plantCardViewModel: self.plantCardViewModel)
+                            }
                         }
                     }
 
-                }
+                
             }
             
         }
@@ -144,11 +172,14 @@ struct MainView: View {
         .accentColor(.buttonsBackground)
 
     }
-//    init(){
-//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-//
-//
-//        }
+
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .buttonsBackground
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.screenBackground], for: .selected)
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.bodyText], for: .normal)
+    }
 }
 
 
