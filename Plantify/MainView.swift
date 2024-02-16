@@ -11,7 +11,7 @@ struct MainView: View {
     @State private var PickerSelection = 0
     @State private var pickerSelection = ""
     @StateObject var plantCardViewModel = PlantCardViewModel()
-    @ObservedObject var checkCardViewModel = CheckCardViewModel()
+    @StateObject var viewModelsCoordinator = ViewModelCoordinator()
 
 
     var body: some View {
@@ -50,7 +50,7 @@ struct MainView: View {
 
                 
                     
-                    if (checkCardViewModel.checkCards.isEmpty){
+                if (viewModelsCoordinator.checkCards.isEmpty){
                         
                         VStack{
 
@@ -72,10 +72,9 @@ struct MainView: View {
 
                         VStack{
 
-                            ForEach(checkCardViewModel.checkCards, id: \.self){
-                            CheckCard in CheckCardView(checkCard: CheckCard, checkCardViewModel: checkCardViewModel)
+                            ForEach(viewModelsCoordinator.checkCards, id: \.self){
+                                CheckCard in CheckCardView(checkCard: CheckCard, viewModelsCoordinator: viewModelsCoordinator)
                         }
-                        
                         
                     }
                     .frame(width: 350, height: 270, alignment: .top)
@@ -104,7 +103,7 @@ struct MainView: View {
                             .foregroundColor(.buttonsBackground)
                     })
                     .sheet(isPresented: $plantCardViewModel.isShowingSheet, content: {
-                        PlantSheet(plantCardViewModel: plantCardViewModel, checkCardViewModel: checkCardViewModel)
+                        PlantSheet(plantCardViewModel: plantCardViewModel, viewModelCoordinator: viewModelsCoordinator)
                     })
                     
 
@@ -112,7 +111,7 @@ struct MainView: View {
                 
                     
                     
-                    if (plantCardViewModel.PlantCards.isEmpty){
+                if (viewModelsCoordinator.plantCardViewModel.PlantCards.isEmpty){
                         
                         VStack{
                             
@@ -142,8 +141,8 @@ struct MainView: View {
                         
                         ScrollView{
                             
-                            
-                            ForEach(plantCardViewModel.PlantCards, id: \.self){
+
+                            ForEach(viewModelsCoordinator.plantCardViewModel.PlantCards, id: \.self){
                                 PlantCard in PlantCardView(plantCard: PlantCard, plantCardViewModel: plantCardViewModel)
                             }
                         }

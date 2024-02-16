@@ -10,7 +10,8 @@ import SwiftUI
 struct CheckCardView: View {
     
     var checkCard : CheckCard
-    @StateObject var checkCardViewModel : CheckCardViewModel
+    @StateObject var viewModelsCoordinator : ViewModelCoordinator
+
     
     var body: some View {
         ZStack{
@@ -22,7 +23,7 @@ struct CheckCardView: View {
             HStack{
                 
                 Button(action: {
-                    checkCardViewModel.wateringDone(checkCard: checkCard)
+                    viewModelsCoordinator.wateringDone(checkCard: checkCard, WateringPerWeek: checkCard.watering)
                 }, label: {
                     
                     Circle()

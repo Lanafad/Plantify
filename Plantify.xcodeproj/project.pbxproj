@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F7ADC1A2B8009A300B583C5 /* ViewModelsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */; };
 		3F920AB52B7BA9E800480441 /* PlantifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920AB42B7BA9E800480441 /* PlantifyApp.swift */; };
 		3F920AB72B7BA9E800480441 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920AB62B7BA9E800480441 /* ContentView.swift */; };
 		3F920AB92B7BA9E900480441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F920AB82B7BA9E900480441 /* Assets.xcassets */; };
@@ -19,10 +20,10 @@
 		3FDA359B2B7CBB6A005EB44A /* PlantSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */; };
 		3FDA359F2B7EDCCA005EB44A /* CheckCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA359E2B7EDCCA005EB44A /* CheckCard.swift */; };
 		3FDA35A12B7EDCD8005EB44A /* CheckCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA35A02B7EDCD8005EB44A /* CheckCardView.swift */; };
-		3FDA35A32B7EE0BE005EB44A /* CheckCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA35A22B7EE0BE005EB44A /* CheckCardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsCoordinator.swift; sourceTree = "<group>"; };
 		3F920AB12B7BA9E800480441 /* Plantify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plantify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F920AB42B7BA9E800480441 /* PlantifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyApp.swift; sourceTree = "<group>"; };
 		3F920AB62B7BA9E800480441 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSheet.swift; sourceTree = "<group>"; };
 		3FDA359E2B7EDCCA005EB44A /* CheckCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCard.swift; sourceTree = "<group>"; };
 		3FDA35A02B7EDCD8005EB44A /* CheckCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCardView.swift; sourceTree = "<group>"; };
-		3FDA35A22B7EE0BE005EB44A /* CheckCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +76,11 @@
 				3FDA35962B7C08C7005EB44A /* SeeAllView.swift */,
 				3FDA359E2B7EDCCA005EB44A /* CheckCard.swift */,
 				3FDA35A02B7EDCD8005EB44A /* CheckCardView.swift */,
-				3FDA35A22B7EE0BE005EB44A /* CheckCardViewModel.swift */,
 				3F920ACD2B7BF2C000480441 /* PlantCard.swift */,
 				3F920ACF2B7BF2CA00480441 /* PlantCardView.swift */,
 				3F920AD12B7BF2D400480441 /* PlantCardViewModel.swift */,
 				3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */,
+				3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */,
 				3F920AB82B7BA9E900480441 /* Assets.xcassets */,
 				3F920ABA2B7BA9E900480441 /* Plantify.entitlements */,
 				3F920ABB2B7BA9E900480441 /* Preview Content */,
@@ -170,11 +170,11 @@
 				3FDA35972B7C08C7005EB44A /* SeeAllView.swift in Sources */,
 				3F920AB72B7BA9E800480441 /* ContentView.swift in Sources */,
 				3F920ACE2B7BF2C000480441 /* PlantCard.swift in Sources */,
-				3FDA35A32B7EE0BE005EB44A /* CheckCardViewModel.swift in Sources */,
 				3FDA359B2B7CBB6A005EB44A /* PlantSheet.swift in Sources */,
 				3F920ACC2B7BF2B800480441 /* MainView.swift in Sources */,
 				3F920AD02B7BF2CA00480441 /* PlantCardView.swift in Sources */,
 				3FDA35A12B7EDCD8005EB44A /* CheckCardView.swift in Sources */,
+				3F7ADC1A2B8009A300B583C5 /* ViewModelsCoordinator.swift in Sources */,
 				3F920AD22B7BF2D400480441 /* PlantCardViewModel.swift in Sources */,
 				3F920AB52B7BA9E800480441 /* PlantifyApp.swift in Sources */,
 			);

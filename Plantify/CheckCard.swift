@@ -10,6 +10,7 @@ struct CheckCard : Hashable {
     
     var plantName : String
     var plantType : String
+    var watering : Int
     
 
 }

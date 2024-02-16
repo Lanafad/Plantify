@@ -73,12 +73,13 @@ struct PlantCardView: View {
                         .frame(width: 71)
                     
                     Circle()
-                        .trim(from: 0, to: 0.5)
+                        .trim(from: 0, to: plantCardViewModel.progress )
                         .stroke(
                             Color.buttonsBackground,
                             style: StrokeStyle(lineWidth: 4, lineCap: .round))
                         .frame(width: 71)
                         .rotationEffect(.degrees(-90))
+                    
                     
                     VStack{
                         Image(systemName: "drop")
@@ -98,3 +99,4 @@ struct PlantCardView: View {
         }
     }
 }
+

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PlantSheet: View {
     
-    @StateObject var plantCardViewModel : PlantCardViewModel
-    @StateObject var checkCardViewModel : CheckCardViewModel
+    @StateObject var plantCardViewModel : PlantCardViewModel    
+    @StateObject var viewModelCoordinator : ViewModelCoordinator
     @State var planttype = ""
     @State var plantlight = ""
     @State var plantpot = ""
@@ -21,7 +21,7 @@ struct PlantSheet: View {
             
             Button(action: {
                 print("Adding plant...")
-                    plantCardViewModel.addPlant(PlantName: "voo", PlantType: "Succulents", PotSize: "4-6 inch", Light: "direct light", Watering: 8)
+                viewModelCoordinator.createPlantCard(PlantName: "b", PlantType: "c", PotSize: "4-6 d", Light: "direct e", Watering: 4)
                     print("Plant added.")
                     plantCardViewModel.isShowingSheet = false
             }, label: {

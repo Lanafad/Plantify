@@ -10,6 +10,8 @@ import SwiftUI
 
 class PlantCardViewModel : ObservableObject {
     
+    var coordinator: ViewModelCoordinator?
+    
     @Published var PlantCards : [PlantCard] = []
     @Published var isShowingSheet = false
     @Published var LightDictionary = [String : String]()
@@ -17,24 +19,10 @@ class PlantCardViewModel : ObservableObject {
     @Published var PlantTypesArray = ["Succulents", "Ferns", "Pothos", "Peace lilies", "Ficus", "Palm"]
     @Published var PotSizeArray = ["4-6 inch", "6-10 inch", "10-16 inch+"]
     @Published var LightingArray = ["direct light", "partial light", "no light"]
-    @Published var Watering = 0
-    
-     var checkCardViewModel = CheckCardViewModel()
-
+    @Published var progress : CGFloat = 1
+    @Published var checkWatering = 0
 
     
-    func addPlant(PlantName : String, PlantType : String, PotSize : String, Light : String, Watering : Int){
-        
-        
-        
-        
-        let newPlant = PlantCard(PlantName: PlantName, PlantType: PlantType, PotSize: PotSize, Light: Light, Watering: Watering, CheckCards: checkCardViewModel.addCheckCard(plantName: PlantName, plantType: PlantType))
-        
-        PlantCards.append(newPlant)
-        print("Plant added: \(newPlant)")
-
-        
-    }
     
     func setLightDictionary(){
         LightDictionary["Succulents,direct light"] = "Provide 6-8 hours of bright sunlight and monitor soil moisture closely."
@@ -155,7 +143,7 @@ class PlantCardViewModel : ObservableObject {
         return array.contains(weekday)
     }
     
-    
+
     
     
 
