@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     @State private var PickerSelection = 0
-    @State private var pickerSelection = ""
     @StateObject var plantCardViewModel = PlantCardViewModel()
     @StateObject var viewModelsCoordinator = ViewModelCoordinator()
 
@@ -29,7 +28,7 @@ struct MainView: View {
                     Spacer()
                     
 
-                    NavigationLink(destination: SeeAllView(), label:
+                    NavigationLink(destination: SeeAllView(viewModelsCoordinator: viewModelsCoordinator), label:
                                     {
                         Text("See All")
                             .font(.system(size: 12,weight: .light))
@@ -93,6 +92,9 @@ struct MainView: View {
                     
                     Button(action: {
                         plantCardViewModel.isShowingSheet.toggle()
+                        plantCardViewModel.setPotDictionary()
+                        plantCardViewModel.setLightDictionary()
+
                         print("Is Showing Sheet: \(plantCardViewModel.isShowingSheet)")
 
                     }
@@ -143,7 +145,12 @@ struct MainView: View {
                             
 
                             ForEach(viewModelsCoordinator.plantCardViewModel.PlantCards, id: \.self){
-                                PlantCard in PlantCardView(plantCard: PlantCard, plantCardViewModel: plantCardViewModel)
+                                PlantCard in 
+                                
+                                NavigationLink(destination: EditPlantView(plantCard: PlantCard, plantCardViewModel: plantCardViewModel), label:{
+                                    PlantCardView(plantCard: PlantCard, plantCardViewModel: plantCardViewModel, viewModelsCoordinator: viewModelsCoordinator)
+                                })
+
                             }
                         }
                     }

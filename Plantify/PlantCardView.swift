@@ -10,6 +10,8 @@ import SwiftUI
 struct PlantCardView: View {
     var plantCard : PlantCard
     @StateObject var plantCardViewModel : PlantCardViewModel
+    @StateObject var viewModelsCoordinator : ViewModelCoordinator
+
 
     var body: some View {
         
@@ -73,7 +75,7 @@ struct PlantCardView: View {
                         .frame(width: 71)
                     
                     Circle()
-                        .trim(from: 0, to: plantCardViewModel.progress )
+                        .trim(from: 0, to: viewModelsCoordinator.hh() )
                         .stroke(
                             Color.buttonsBackground,
                             style: StrokeStyle(lineWidth: 4, lineCap: .round))

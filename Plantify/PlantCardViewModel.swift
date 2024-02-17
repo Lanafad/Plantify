@@ -19,8 +19,10 @@ class PlantCardViewModel : ObservableObject {
     @Published var PlantTypesArray = ["Succulents", "Ferns", "Pothos", "Peace lilies", "Ficus", "Palm"]
     @Published var PotSizeArray = ["4-6 inch", "6-10 inch", "10-16 inch+"]
     @Published var LightingArray = ["direct light", "partial light", "no light"]
-    @Published var progress : CGFloat = 1
+    @Published var progress : CGFloat = 0
     @Published var checkWatering = 0
+
+    
 
     
     
@@ -79,8 +81,9 @@ class PlantCardViewModel : ObservableObject {
     
     func getLightAdvice(plantType : String, plantLight : String) -> String? {
         let key = ("\(plantType),\(plantLight)")
-    
+        
         return LightDictionary[key]
+
 
     }    
     

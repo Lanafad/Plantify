@@ -43,15 +43,31 @@ class ViewModelCoordinator : ObservableObject {
     }
     
     func wateringDone(checkCard : CheckCard, WateringPerWeek : Int){
+        plantCardViewModel.checkWatering += 1
+        print("watering progress \(plantCardViewModel.progress)")
+
+        plantCardViewModel.progress = CGFloat(plantCardViewModel.checkWatering) / CGFloat(WateringPerWeek)
+        
+        print("watering progress updated \(plantCardViewModel.progress)")
         if let index = checkCards.firstIndex(of: checkCard){
             checkCards.remove(at: index)
             print("card removed\(checkCards)")
         }
-        plantCardViewModel.checkWatering += 1
-        plantCardViewModel.progress = CGFloat(plantCardViewModel.checkWatering) / CGFloat(WateringPerWeek)
 
+        
         
     }
     
+    func hh() -> CGFloat{
+        
+        if(plantCardViewModel.progress == 1){
+            return 1
+        } else{
+            
+            return plantCardViewModel.progress
+        }
+    }
+    
+
 
 }

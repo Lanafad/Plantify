@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F511B3F2B80D0E2003F05CD /* EditPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F511B3E2B80D0E2003F05CD /* EditPlantView.swift */; };
 		3F7ADC1A2B8009A300B583C5 /* ViewModelsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */; };
 		3F920AB52B7BA9E800480441 /* PlantifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920AB42B7BA9E800480441 /* PlantifyApp.swift */; };
 		3F920AB72B7BA9E800480441 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920AB62B7BA9E800480441 /* ContentView.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F511B3E2B80D0E2003F05CD /* EditPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlantView.swift; sourceTree = "<group>"; };
 		3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsCoordinator.swift; sourceTree = "<group>"; };
 		3F920AB12B7BA9E800480441 /* Plantify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plantify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F920AB42B7BA9E800480441 /* PlantifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyApp.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				3F920AD12B7BF2D400480441 /* PlantCardViewModel.swift */,
 				3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */,
 				3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */,
+				3F511B3E2B80D0E2003F05CD /* EditPlantView.swift */,
 				3F920AB82B7BA9E900480441 /* Assets.xcassets */,
 				3F920ABA2B7BA9E900480441 /* Plantify.entitlements */,
 				3F920ABB2B7BA9E900480441 /* Preview Content */,
@@ -172,6 +175,7 @@
 				3F920ACE2B7BF2C000480441 /* PlantCard.swift in Sources */,
 				3FDA359B2B7CBB6A005EB44A /* PlantSheet.swift in Sources */,
 				3F920ACC2B7BF2B800480441 /* MainView.swift in Sources */,
+				3F511B3F2B80D0E2003F05CD /* EditPlantView.swift in Sources */,
 				3F920AD02B7BF2CA00480441 /* PlantCardView.swift in Sources */,
 				3FDA35A12B7EDCD8005EB44A /* CheckCardView.swift in Sources */,
 				3F7ADC1A2B8009A300B583C5 /* ViewModelsCoordinator.swift in Sources */,
