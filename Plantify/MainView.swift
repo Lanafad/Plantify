@@ -104,9 +104,9 @@ struct MainView: View {
                             .font(.system(size: 24))
                             .foregroundColor(.buttonsBackground)
                     })
-                    .sheet(isPresented: $plantCardViewModel.isShowingSheet, content: {
-                        PlantSheet(plantCardViewModel: plantCardViewModel, viewModelCoordinator: viewModelsCoordinator)
-                    })
+//                    .sheet(isPresented: $plantCardViewModel.isShowingSheet, content: {
+//                        PlantSheet(plantCardViewModel: plantCardViewModel, viewModelCoordinator: viewModelsCoordinator)
+//                    })
                     
 
                 }
