@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SuccessfullyView: View {
+    var isShowingSheet: Binding<Bool>
+
     var body: some View {
         VStack {
             Spacer()
@@ -23,21 +25,23 @@ struct SuccessfullyView: View {
             
             Spacer()
             
-            Button("Done") {
-                // Perform any action here when "I'm done" button is tapped
-            }
-            .frame(width: 300, height: 25)
-            .foregroundColor(.screenBackground)
-            .padding()
-            .background(Color.buttonsBackground)
-            .cornerRadius(10)
-            .padding()
+            Button(action: {
+                isShowingSheet.wrappedValue = false
+            }, label: {
+                ZStack{
+                RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 358, height: 50)
+                        .foregroundColor(.buttonsBackground)
+                        .padding()
+                    
+                    Text("Done")
+                        .font(.headline)
+                        .foregroundColor(.screenBackground)
+                        .padding()
+                }
+            })
         }
     }
 }
 
-struct SuccessfullyView_Previews: PreviewProvider {
-    static var previews: some View {
-        SuccessfullyView()
-    }
-}
+

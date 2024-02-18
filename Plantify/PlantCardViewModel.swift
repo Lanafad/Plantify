@@ -11,20 +11,15 @@ import SwiftUI
 class PlantCardViewModel : ObservableObject {
     
     var coordinator: ViewModelCoordinator?
-    
-    
-    
+
     @Published var PlantCards : [PlantCard] = []
     @Published var isShowingSheet = false
     @Published var LightDictionary = [String : String]()
     @Published var PotDictionary = [String : String]()
-//    @Published var PlantTypesArray = ["Succulents", "Ferns", "Pothos", "Peace lilies", "Ficus", "Palm"]
-//    @Published var PotSizeArray = ["4-6 inch", "6-10 inch", "10-16 inch+"]
-//    @Published var LightingArray = ["direct light", "partial light", "no light"]
     @Published var progress : CGFloat = 0
     @Published var checkWatering = 0
     
-    @Published var types : [PlantTypes] = [.succulents, .ferns, .pothos, .peaceLilies, .ficus, .palm]
+    @Published var types : [PlantTypes] = [.succulents, .ferns, .pothos, .palm, .peaceLilies, .ficus]
     @Published var pots : [PotSize] = [.four, .six, .ten]
     @Published var lights : [Lighting] = [.direct, .partial, .noLight]
 

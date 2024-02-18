@@ -13,6 +13,7 @@ struct MainView: View {
     @StateObject var viewModelsCoordinator = ViewModelCoordinator()
 
 
+
     var body: some View {
         
         NavigationStack{
@@ -105,7 +106,7 @@ struct MainView: View {
                             .foregroundColor(.buttonsBackground)
                     })
                     .sheet(isPresented: $plantCardViewModel.isShowingSheet, content: {
-                        PlantSheet(plantCardViewModel: plantCardViewModel, viewModelCoordinator: viewModelsCoordinator)
+                        PlantSheet(plantCardViewModel: plantCardViewModel, viewModelCoordinator: viewModelsCoordinator, isShowingSheet: $plantCardViewModel.isShowingSheet)
                     })
                     
 
