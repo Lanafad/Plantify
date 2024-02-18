@@ -43,9 +43,12 @@ struct PlantSheet: View {
                     }
                     
                     
-                    Section(header: HStack { Text("Plant Type") }.frame(width: 350, alignment: .leading)) {plantTypeView}
+                    Section(header: HStack { Text("Plant Type").frame(width: 350, alignment: .leading) }) {plantTypeView}
+                        .padding(8)
                     Section(header: HStack { Text("Pot Size") }.frame(width: 350, alignment: .leading)) {plantPotView}
+                        .padding(8)
                     Section(header: HStack { Text("Light") }.frame(width: 350, alignment: .leading)) {plantLightView}
+                        .padding(8)
                     
 
                     ZStack{

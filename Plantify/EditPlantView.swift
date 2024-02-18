@@ -4,6 +4,12 @@
 //
 //  Created by lana alfaadhel on 17/02/2024.
 //
+//
+//  EditPlantView.swift
+//  Plantify
+//
+//  Created by lana alfaadhel on 17/02/2024.
+//
 import SwiftUI
 
 struct EditPlantView: View {
