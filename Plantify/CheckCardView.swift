@@ -41,7 +41,7 @@ struct CheckCardView: View {
                         .font(.title3)
                         .foregroundColor(.bodyText)
                     
-                    Text("\(checkCard.plantType)")
+                    Text("\(checkCard.plantType.rawValue)")
                         .font(.caption)
                         .foregroundColor(.subtitleText)
                 }

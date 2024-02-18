@@ -12,18 +12,46 @@ class PlantCardViewModel : ObservableObject {
     
     var coordinator: ViewModelCoordinator?
     
+    
+    
     @Published var PlantCards : [PlantCard] = []
     @Published var isShowingSheet = false
     @Published var LightDictionary = [String : String]()
     @Published var PotDictionary = [String : String]()
-    @Published var PlantTypesArray = ["Succulents", "Ferns", "Pothos", "Peace lilies", "Ficus", "Palm"]
-    @Published var PotSizeArray = ["4-6 inch", "6-10 inch", "10-16 inch+"]
-    @Published var LightingArray = ["direct light", "partial light", "no light"]
+//    @Published var PlantTypesArray = ["Succulents", "Ferns", "Pothos", "Peace lilies", "Ficus", "Palm"]
+//    @Published var PotSizeArray = ["4-6 inch", "6-10 inch", "10-16 inch+"]
+//    @Published var LightingArray = ["direct light", "partial light", "no light"]
     @Published var progress : CGFloat = 0
     @Published var checkWatering = 0
+    
+    @Published var types : [PlantTypes] = [.succulents, .ferns, .pothos, .peaceLilies, .ficus, .palm]
+    @Published var pots : [PotSize] = [.four, .six, .ten]
+    @Published var lights : [Lighting] = [.direct, .partial, .noLight]
 
     
-
+    enum PlantTypes : String {
+    case succulents = "Succulents"
+    case ferns = "Ferns"
+    case pothos = "Pothos"
+    case peaceLilies = "Peace lilies"
+    case ficus = "Ficus"
+    case palm = "Palm"
+    case none = ""
+    }
+    
+    enum PotSize : String {
+    case four = "4-6 inch"
+    case six = "6-10 inch"
+    case ten = "10-16 inch+"
+    case none = ""
+    }
+    
+    enum Lighting : String {
+    case direct = "direct light"
+    case partial = "partial light"
+    case noLight = "no light"
+    case none = ""
+    }
     
     
     func setLightDictionary(){

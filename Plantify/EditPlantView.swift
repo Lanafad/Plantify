@@ -30,7 +30,7 @@ struct EditPlantView: View {
                                             .font(.system(size: 11))
                                             .foregroundColor(.icons)
                                         
-                                        Text("\(plantCard.PlantType)")
+                                        Text("\(plantCard.PlantType.rawValue)")
                                             .font(.caption2)
                                             .foregroundColor(.bodyText)
                                     }
@@ -62,7 +62,7 @@ struct EditPlantView: View {
                                             .font(.system(size: 11))
                                             .foregroundColor(.icons)
                                         
-                                        Text("\(plantCard.Light)")
+                                        Text("\(plantCard.Light.rawValue)")
                                             .font(.caption2)
                                             .foregroundColor(.bodyText)
                                     }
@@ -78,7 +78,7 @@ struct EditPlantView: View {
                                             .font(.system(size: 11))
                                             .foregroundColor(.icons)
                                         
-                                        Text("\(plantCard.PotSize)")
+                                        Text("\(plantCard.PotSize.rawValue)")
                                             .font(.caption2)
                                             .foregroundColor(.bodyText)
                                     }
@@ -115,7 +115,7 @@ struct EditPlantView: View {
                         .frame(width: 350, height: 52)
                         .cornerRadius(8)
                         .overlay(
-                                Text("\(plantCardViewModel.getLightAdvice(plantType: plantCard.PlantType, plantLight: plantCard.Light) ?? "Advice Not Found")")
+                            Text("\(plantCardViewModel.getLightAdvice(plantType: plantCard.PlantType.rawValue, plantLight: plantCard.Light.rawValue) ?? "Advice Not Found")")
                                     .font(.caption)
                                     .foregroundColor(.bodyText)
                                     .frame(width: 330, height: 52, alignment: .leading)
@@ -129,7 +129,7 @@ struct EditPlantView: View {
                         .frame(width: 350, height: 52)
                         .cornerRadius(8)
                         .overlay(
-                            Text("\(plantCardViewModel.getPottAdvice(plantType: plantCard.PlantType, plantPot: plantCard.PotSize) ?? "Advice Not Found")")
+                            Text("\(plantCardViewModel.getPottAdvice(plantType: plantCard.PlantType.rawValue, plantPot: plantCard.PotSize.rawValue) ?? "Advice Not Found")")
                                 .font(.caption)
                                 .foregroundColor(.bodyText)
                                 .frame(width: 330, height: 52, alignment: .leading)

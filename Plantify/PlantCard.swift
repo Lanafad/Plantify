@@ -10,9 +10,9 @@ import SwiftUI
 struct PlantCard : Hashable{
 
     var PlantName : String
-    var PlantType : String
-    var PotSize : String
-    var Light : String
+    var PlantType : PlantCardViewModel.PlantTypes
+    var PotSize : PlantCardViewModel.PotSize
+    var Light : PlantCardViewModel.Lighting
     var Watering : Int
     var CheckCards : CheckCard
 }

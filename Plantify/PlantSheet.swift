@@ -9,10 +9,21 @@
 
 import SwiftUI
 
+//enum PlanetType : String {
+//case succulents = "Succulents"
+//case ferns = "Ferns"
+//case none = ""
+//}
+
 struct PlantSheet: View {
-    @State private var showingSheet = false
+    
+    @StateObject var plantCardViewModel : PlantCardViewModel
+    @StateObject var viewModelCoordinator : ViewModelCoordinator
+
+    
+//    @State private var showingSheet = false
     @State private var Option: String = ""
-    @State private var numberInput: String = ""
+    @State private var numberInput = 0
     @State private var SucculentsSelected = false
     @State private var FernsSelected = false
     @State private var PothosSelected = false
@@ -27,13 +38,19 @@ struct PlantSheet: View {
     @State private var noLightSelected = false
     @State private var isSuccessfullyNavigated = false
     @State private var PlantName: String = ""
-
+    
+    
+    @State private var selectedType : PlantCardViewModel.PlantTypes = .none
+    @State private var selectedPot : PlantCardViewModel.PotSize = .none
+    @State private var selectedLight : PlantCardViewModel.Lighting = .none
+    
+    
     var body: some View {
         VStack {
-            Button("Show Sheet") {
-                showingSheet.toggle()
-            }
-            .sheet(isPresented: $showingSheet) {
+//            Button("Show Sheet") {
+//                showingSheet.toggle()
+//            }
+//            .sheet(isPresented: $plantCardViewModel.isShowingSheet) {
                 NavigationStack {
                     ZStack{
                         RoundedRectangle(cornerRadius: 8)
@@ -51,180 +68,25 @@ struct PlantSheet: View {
                         HStack {
                             Text("Plant Type")
                             Spacer()
-                        }
-                    )
-                    {
-                        VStack(alignment: .leading){
-                            HStack(spacing: 10) {
-                                OptionButton(title: "Succulents", isSelected: SucculentsSelected) {
-                                    SucculentsSelected.toggle()
-                                    FernsSelected = false
-                                    PothosSelected = false
-                                    PlamSelected = false
-                                    PeaceliliesSelected = false
-                                    FicusSelected = false
-                                    if SucculentsSelected {
-                                        Option = "Succulents"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                                OptionButton(title: "Ferns", isSelected: FernsSelected) {
-                                    FernsSelected.toggle()
-                                    SucculentsSelected = false
-                                    PothosSelected = false
-                                    PlamSelected = false
-                                    PeaceliliesSelected = false
-                                    FicusSelected = false
-                                    if FernsSelected {
-                                        Option = "Ferns"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                                OptionButton(title: "Pothos", isSelected: PothosSelected) {
-                                    PothosSelected.toggle()
-                                    SucculentsSelected = false
-                                    FernsSelected = false
-                                    PlamSelected = false
-                                    PeaceliliesSelected = false
-                                    FicusSelected = false
-                                    if PothosSelected {
-                                        Option = "Pothos"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                                OptionButton(title: "Plam", isSelected: PlamSelected) {
-                                    PlamSelected.toggle()
-                                    SucculentsSelected = false
-                                    PothosSelected = false
-                                    FernsSelected = false
-                                    PeaceliliesSelected = false
-                                    FicusSelected = false
-                                    if PlamSelected {
-                                        Option = "Plam"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                            }
-                            HStack{
-                                OptionButton(title: "Peace Lilies", isSelected: PeaceliliesSelected) {
-                                    PeaceliliesSelected.toggle()
-                                    SucculentsSelected = false
-                                    PothosSelected = false
-                                    FernsSelected = false
-                                    PlamSelected = false
-                                    FicusSelected = false
-                                    if PartiallightSelected {
-                                        Option = "Peace Lilies"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                                OptionButton(title: "Ficus", isSelected: FicusSelected) {
-                                    FicusSelected.toggle()
-                                    SucculentsSelected = false
-                                    PothosSelected = false
-                                    FernsSelected = false
-                                    PlamSelected = false
-                                    PeaceliliesSelected = false
-                                    if FicusSelected {
-                                        Option = "Peace Lilies"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                            }
-                           
-                        }
-                        .padding()
-                }
+                        }) {
+                        plantTypeView
+                        .padding() }
+                    
+                    
                     Section(header:
                                 HStack {
                                     Text("Pot Size")
                                     Spacer()
                                 }) {
-                        VStack{
-                            HStack(spacing: 10) {
-                                OptionButton(title: "4-6 inch", isSelected: PotSize1Selected) {
-                                    PotSize1Selected.toggle()
-                                    PotSize2Selected = false
-                                    PotSize3Selected = false
-                                    if PotSize1Selected {
-                                        Option = "4-6 inch"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                                OptionButton(title: "6-10 inch", isSelected: PotSize2Selected) {
-                                    PotSize2Selected.toggle()
-                                    PotSize1Selected = false
-                                    PotSize3Selected = false
-                                    if PotSize2Selected {
-                                        Option = "6-10 inch"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                                OptionButton(title: "10-16 inch+", isSelected: PotSize3Selected) {
-                                    PotSize3Selected.toggle()
-                                    PotSize2Selected = false
-                                    PotSize1Selected = false
-                                    if PotSize3Selected {
-                                        Option = "10-16 inch+"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                            }
-                           
-                        }
-                        .padding()
-                }
+                                plantPotView
+                                        .padding()}
                     Section(header:
                                 HStack {
                                     Text("Light")
                                     Spacer()
                                 }) {
-                        VStack(alignment: .leading){
-                            HStack(spacing: 10) {
-                                OptionButton(title: "Direct Light", isSelected: DirectlightSelected) {
-                                    DirectlightSelected.toggle()
-                                    PartiallightSelected = false
-                                    noLightSelected = false
-                                    if DirectlightSelected {
-                                        Option = "Direct Light"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                                OptionButton(title: "Partial Light", isSelected: PartiallightSelected) {
-                                    PartiallightSelected.toggle()
-                                    DirectlightSelected = false
-                                    noLightSelected = false
-                                    if PartiallightSelected {
-                                        Option = "6-10 inch"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                                OptionButton(title: "No Light", isSelected: noLightSelected) {
-                                    noLightSelected.toggle()
-                                    DirectlightSelected = false
-                                    PartiallightSelected = false
-                                    if noLightSelected {
-                                        Option = "No Light"
-                                    } else {
-                                        Option = ""
-                                    }
-                                }
-                            }
-                           
-                        }
-                        .padding()
-                }
+                                    plantLightView
+                                        .padding()}
                     ZStack{
                         RoundedRectangle(cornerRadius: 8)
                             .frame(width: 350,height: 46)
@@ -232,7 +94,7 @@ struct PlantSheet: View {
                         HStack{
                             Text("Watering")
                                 Spacer()
-                            TextField("0", text: $numberInput)
+                            TextField("kk", value: $numberInput, format: .number)
                             Text("/ week")
                         }
                         .padding()
@@ -240,7 +102,7 @@ struct PlantSheet: View {
                     
                     .navigationBarItems(
                         leading: Button("Cancel") {
-                            showingSheet = false
+                            plantCardViewModel.isShowingSheet = false
                         }.foregroundColor(.buttonsBackground),
                         
                         trailing:
@@ -248,7 +110,8 @@ struct PlantSheet: View {
                             Button("Add") {
                                 // Add button action
                                 // You can perform any action here when Add is tapped
-                                showingSheet = false
+                                viewModelCoordinator.createPlantCard(PlantName: PlantName, PlantType: selectedType, PotSize: selectedPot, Light: selectedLight, Watering: numberInput)
+                                plantCardViewModel.isShowingSheet = false
                                 isSuccessfullyNavigated = true
                             }.foregroundColor(.buttonsBackground)
                             .background(
@@ -260,9 +123,99 @@ struct PlantSheet: View {
 
                 }
                 .padding()
-            }
+//            }
         }
     }
+    
+    
+    
+    private var plantTypeView : some View {
+        VStack(alignment: .leading){
+            LazyHGrid(rows: [GridItem()], spacing: 12, content: {
+                ForEach(plantCardViewModel.types,id: \.self) { plant in
+                    Button {
+                        selectedType = plant
+                    } label: {
+                        Text(plant.rawValue)
+                            .padding()
+//                            .background(.red)
+//                        VStack {
+//                            Text(title)
+                                .frame(height: 46)
+                                .font(.headline)
+                                .foregroundColor(/*isSelected ? Color.screenBackground :*/Color.bodyText)
+                                .padding(8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .foregroundColor(/*isSelected ? Color.buttonsBackground : */Color.cardBackground)
+                                )
+//                        }
+                    }
+                }
+            }
+            )
+
+        }
+        .frame(height: 100)
+    }
+    
+    private var plantPotView : some View {
+        VStack(alignment: .leading){
+            LazyHGrid(rows: [GridItem(.fixed(20))], spacing: 12, content: {
+                ForEach(plantCardViewModel.pots,id: \.self) { pot in
+                    Button {
+                        selectedPot = pot
+                    } label: {
+                        Text(pot.rawValue)
+                            .padding()
+//                            .background(.red)
+//                        VStack {
+//                            Text(title)
+                                .frame(height: 46)
+                                .font(.headline)
+                                .foregroundColor(/*isSelected ? Color.screenBackground :*/Color.bodyText)
+                                .padding(8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .foregroundColor(/*isSelected ? Color.buttonsBackground : */Color.cardBackground)
+                                )
+//                        }
+                    }
+                }
+            })
+
+        }
+    }  
+    
+    private var plantLightView : some View {
+        VStack(alignment: .leading){
+            LazyHGrid(rows: [GridItem(.fixed(20))], spacing: 12, content: {
+                ForEach(plantCardViewModel.lights,id: \.self) { light in
+                    Button {
+                        selectedLight = light
+                    } label: {
+                        Text(light.rawValue)
+                            .padding()
+//                            .background(.red)
+//                        VStack {
+//                            Text(title)
+                                .frame(height: 46)
+                                .font(.headline)
+                                .foregroundColor(/*isSelected ? Color.screenBackground :*/Color.bodyText)
+                                .padding(8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .foregroundColor(/*isSelected ? Color.buttonsBackground : */Color.cardBackground)
+                                )
+//                        }
+                    }
+                }
+            })
+
+        }
+    }
+    
+    
 }
 
 struct OptionButton: View {
@@ -289,8 +242,8 @@ struct OptionButton: View {
 
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlantSheet()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PlantSheet()
+//    }
+//}

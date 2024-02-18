@@ -47,7 +47,7 @@ struct PlantCardView: View {
                                     .font(.system(size: 11))
                                     .foregroundColor(.icons)
                                 
-                                Text("\(plantCard.PlantType)")
+                                Text("\(plantCard.PlantType.rawValue)")
                                     .font(.caption2)
                                     .foregroundColor(.bodyText)
                             }
@@ -75,7 +75,7 @@ struct PlantCardView: View {
                         .frame(width: 71)
                     
                     Circle()
-                        .trim(from: 0, to: viewModelsCoordinator.hh() )
+                        .trim(from: 0, to: viewModelsCoordinator.CircleTrim() )
                         .stroke(
                             Color.buttonsBackground,
                             style: StrokeStyle(lineWidth: 4, lineCap: .round))

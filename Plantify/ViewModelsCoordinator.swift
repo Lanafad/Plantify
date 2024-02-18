@@ -17,7 +17,7 @@ class ViewModelCoordinator : ObservableObject {
         self.plantCardViewModel.coordinator = self
     }
 
-    func createPlantCard(PlantName : String, PlantType : String, PotSize : String, Light : String, Watering : Int) {
+    func createPlantCard(PlantName : String, PlantType : PlantCardViewModel.PlantTypes, PotSize :PlantCardViewModel.PotSize , Light : PlantCardViewModel.Lighting, Watering : Int) {
         
             
         let newCheckCard = createCheckCard(PlantName: PlantName, PlantType: PlantType, watering: Watering)
@@ -31,7 +31,7 @@ class ViewModelCoordinator : ObservableObject {
         
     }
 
-    func createCheckCard(PlantName : String, PlantType : String, watering : Int) -> CheckCard {
+    func createCheckCard(PlantName : String, PlantType : PlantCardViewModel.PlantTypes, watering : Int) -> CheckCard {
         
         let newCard = CheckCard(plantName: PlantName, plantType: PlantType, watering: watering)
         
@@ -58,7 +58,7 @@ class ViewModelCoordinator : ObservableObject {
         
     }
     
-    func hh() -> CGFloat{
+    func CircleTrim() -> CGFloat{
         
         if(plantCardViewModel.progress == 1){
             return 1
