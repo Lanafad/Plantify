@@ -72,6 +72,7 @@ struct PlantSheet: View {
                         plantTypeView
                         .padding() }
                     
+                        .padding()
                     
                     Section(header:
                                 HStack {
@@ -80,6 +81,8 @@ struct PlantSheet: View {
                                 }) {
                                 plantPotView
                                         .padding()}
+                                .padding()
+
                     Section(header:
                                 HStack {
                                     Text("Light")
@@ -87,6 +90,8 @@ struct PlantSheet: View {
                                 }) {
                                     plantLightView
                                         .padding()}
+                                .padding()
+
                     ZStack{
                         RoundedRectangle(cornerRadius: 8)
                             .frame(width: 350,height: 46)
@@ -130,33 +135,35 @@ struct PlantSheet: View {
     
     
     private var plantTypeView : some View {
-        VStack(alignment: .leading){
-            LazyHGrid(rows: [GridItem()], spacing: 12, content: {
+//        VStack(alignment: .leading){
+            LazyVGrid(columns: [
+                
+                GridItem(),
+                GridItem(),
+                GridItem(),
+                GridItem()
+                            
+                            
+                            
+                            ], spacing: -5, content: {
                 ForEach(plantCardViewModel.types,id: \.self) { plant in
                     Button {
                         selectedType = plant
                     } label: {
-                        Text(plant.rawValue)
-                            .padding()
-//                            .background(.red)
-//                        VStack {
-//                            Text(title)
-                                .frame(height: 46)
-                                .font(.headline)
-                                .foregroundColor(/*isSelected ? Color.screenBackground :*/Color.bodyText)
-                                .padding(8)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .foregroundColor(/*isSelected ? Color.buttonsBackground : */Color.cardBackground)
-                                )
-//                        }
+                        ZStack{
+                            RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
+                            
+                            
+                        }
+
                     }
+                    
+                    
                 }
             }
             )
 
-        }
-        .frame(height: 100)
+//        }
     }
     
     private var plantPotView : some View {
