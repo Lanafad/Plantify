@@ -5,15 +5,19 @@
 //  Created by lana alfaadhel on 17/02/2024.
 //
 import SwiftUI
+import AVFoundation
+import UIKit
+import ImageIO
+
 
 struct EditPlantView: View {
     @State private var isShowingImagePicker = false
-    @State private var image: UIImage?
+    @State private var images: [UIImage] = [] // Array to store multiple images
     var plantCard : PlantCard
     @StateObject var plantCardViewModel : PlantCardViewModel
-
-
-
+    
+    
+    
     var body: some View {
         NavigationView {
             ScrollView{
@@ -100,7 +104,7 @@ struct EditPlantView: View {
                                         .foregroundColor(.bodyText)
                                 }
                             )
-
+                        
                     }
                     
                     Text("Advice")
@@ -116,12 +120,12 @@ struct EditPlantView: View {
                         .cornerRadius(8)
                         .overlay(
                             Text("\(plantCardViewModel.getLightAdvice(plantType: plantCard.PlantType.rawValue, plantLight: plantCard.Light.rawValue) ?? "Advice Not Found")")
-                                    .font(.caption)
-                                    .foregroundColor(.bodyText)
-                                    .frame(width: 330, height: 52, alignment: .leading)
-                                    .padding()
+                                .font(.caption)
+                                .foregroundColor(.bodyText)
+                                .frame(width: 330, height: 52, alignment: .leading)
+                                .padding()
                         )
-                        
+                    
                     
                     
                     Rectangle()
@@ -136,13 +140,13 @@ struct EditPlantView: View {
                                 .padding()                        )
                     
                     
-                    HStack{
+                    HStack {
                         Text("Photo Gallery")
                             .font(.system(size: 20))
                             .bold()
                             .lineLimit(1)
                             .padding()
-                            .padding(.trailing,164)
+                            .padding(.trailing, 164)
                         Button(action: {
                             self.isShowingImagePicker = true
                         }) {
@@ -151,6 +155,38 @@ struct EditPlantView: View {
                         }
                     }
                     
+                    // Display saved images in pairs
+                    ForEach(images.chunked(into: 2), id: \.self) { imagePair in
+                        HStack(spacing: 10) {
+                            ForEach(imagePair, id: \.self) { image in
+                                VStack(spacing: 0) {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .cornerRadius(4)
+                                        .frame(width: 165, height: 165)
+                                        .clipped()
+                                        .alignmentGuide(.top) { _ in 0 } // Aligns the top of the image
+                                    
+                                    Rectangle()
+                                        .fill(Color.cardBackground)
+                                        .frame(width: 165, height: 25)
+                                        .cornerRadius(4)
+                                        .alignmentGuide(.top) { _ in 0 } // Aligns the top of the rectangle
+                                        .overlay(
+                                            Text(Date().formattedString(dateFormat: "MMMM dd, yyyy"))
+                                                .font(.caption)
+                                                .foregroundColor(Color.buttonsBackground)
+                                                .padding(.top, 4) // Add padding to move the date up
+                                        )
+                                }
+                                .padding(.trailing, 10) // Add spacing between images in a row
+                            }
+                        }
+                        .padding(.bottom, 10) // Add spacing between rows of images
+                    }
+                    
+                    
                     Spacer()
                 }
                 .navigationBarTitle(plantCard.PlantName)
@@ -158,17 +194,16 @@ struct EditPlantView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .padding()
                 .toolbar {
-//                    ToolbarItem(placement: .navigationBarLeading) {
-//                        NavigationLink(destination: MainView()                            /*.navigationBarBackButtonHidden(true)*/
-//                        ) {
-////                            HStack {
-////                                Image(systemName: "chevron.left")
-////                                Text("Back")
-////                            }
-////                            .foregroundColor(Color.buttonsBackground)
-//                        }
-//                    }
-                    
+                    //                    ToolbarItem(placement: .navigationBarLeading) {
+                    //                        NavigationLink(destination: MainView()                            /*.navigationBarBackButtonHidden(true)*/
+                    //                        ) {
+                    ////                            HStack {
+                    ////                                Image(systemName: "chevron.left")
+                    ////                                Text("Back")
+                    ////                            }
+                    ////                            .foregroundColor(Color.buttonsBackground)
+                    //                        }
+                    //                    }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink(destination: EditPlantView(plantCard: plantCard, plantCardViewModel: plantCardViewModel)) {
@@ -181,57 +216,68 @@ struct EditPlantView: View {
             }
         }
         .fullScreenCover(isPresented: $isShowingImagePicker, onDismiss: loadImage) {
-            CameraView(image: $image)
+            CameraView(images: $images)
         }
-    }
-
-    func loadImage() {
-        // Handle image selection
     }
 }
-//
-//struct EditPlantView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditPlantView()
-//    }
-//}
+
+func loadImage() {
+    // Handle image selection
+}
+
 
 struct CameraView: UIViewControllerRepresentable {
-    @Binding var image: UIImage?
-    @Environment(\.presentationMode) var presentationMode
+@Binding var images: [UIImage] // Binding to update the array of images
+@Environment(\.presentationMode) var presentationMode
 
-    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-        let parent: CameraView
+class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    let parent: CameraView
 
-        init(parent: CameraView) {
-            self.parent = parent
+    init(parent: CameraView) {
+        self.parent = parent
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let uiImage = info[.originalImage] as? UIImage {
+            parent.images.append(uiImage) // Append the captured image to the images array
         }
-
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let uiImage = info[.originalImage] as? UIImage {
-                parent.image = uiImage
-            }
-            picker.dismiss(animated: true)
-        }
-
-        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            parent.presentationMode.wrappedValue.dismiss()
-        }
+        picker.dismiss(animated: true)
     }
 
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(parent: self)
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        parent.presentationMode.wrappedValue.dismiss()
     }
+}
 
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.delegate = context.coordinator
-        picker.sourceType = .camera
-        picker.allowsEditing = true
-        return picker
-    }
+func makeCoordinator() -> Coordinator {
+    return Coordinator(parent: self)
+}
 
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-        // Update UI
+func makeUIViewController(context: Context) -> UIImagePickerController {
+    let picker = UIImagePickerController()
+    picker.delegate = context.coordinator
+    picker.sourceType = .camera
+    picker.allowsEditing = true
+    return picker
+}
+
+func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+    // Update UI
+}
+}
+
+extension Date {
+func formattedString(dateFormat: String) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = dateFormat
+    return dateFormatter.string(from: self)
+}
+}
+
+extension Array {
+func chunked(into size: Int) -> [[Element]] {
+    return stride(from: 0, to: count, by: size).map {
+        Array(self[$0 ..< Swift.min($0 + size, count)])
     }
+}
 }

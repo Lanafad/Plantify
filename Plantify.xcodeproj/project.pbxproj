@@ -22,7 +22,38 @@
 		3FDA359B2B7CBB6A005EB44A /* PlantSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */; };
 		3FDA359F2B7EDCCA005EB44A /* CheckCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA359E2B7EDCCA005EB44A /* CheckCard.swift */; };
 		3FDA35A12B7EDCD8005EB44A /* CheckCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA35A02B7EDCD8005EB44A /* CheckCardView.swift */; };
+		CB5136562B82B33400806E10 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5136552B82B33400806E10 /* WidgetKit.framework */; };
+		CB5136582B82B33400806E10 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5136572B82B33400806E10 /* SwiftUI.framework */; };
+		CB51365B2B82B33400806E10 /* PlantifyWidget1Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB51365A2B82B33400806E10 /* PlantifyWidget1Bundle.swift */; };
+		CB51365D2B82B33400806E10 /* PlantifyWidget1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB51365C2B82B33400806E10 /* PlantifyWidget1.swift */; };
+		CB51365F2B82B33400806E10 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB51365E2B82B33400806E10 /* AppIntent.swift */; };
+		CB5136612B82B33500806E10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB5136602B82B33500806E10 /* Assets.xcassets */; };
+		CB5136652B82B33500806E10 /* PlantifyWidget1Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CB5136532B82B33400806E10 /* PlantifyWidget1Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB5136632B82B33500806E10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F920AA92B7BA9E800480441 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB5136522B82B33400806E10;
+			remoteInfo = PlantifyWidget1Extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CB5136692B82B33500806E10 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CB5136652B82B33500806E10 /* PlantifyWidget1Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3F2386592B8221B300E94E6B /* SuccessfullyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfullyView.swift; sourceTree = "<group>"; };
@@ -42,6 +73,14 @@
 		3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSheet.swift; sourceTree = "<group>"; };
 		3FDA359E2B7EDCCA005EB44A /* CheckCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCard.swift; sourceTree = "<group>"; };
 		3FDA35A02B7EDCD8005EB44A /* CheckCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCardView.swift; sourceTree = "<group>"; };
+		CB5136532B82B33400806E10 /* PlantifyWidget1Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PlantifyWidget1Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB5136552B82B33400806E10 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		CB5136572B82B33400806E10 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CB51365A2B82B33400806E10 /* PlantifyWidget1Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyWidget1Bundle.swift; sourceTree = "<group>"; };
+		CB51365C2B82B33400806E10 /* PlantifyWidget1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyWidget1.swift; sourceTree = "<group>"; };
+		CB51365E2B82B33400806E10 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		CB5136602B82B33500806E10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB5136622B82B33500806E10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +91,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CB5136502B82B33400806E10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB5136582B82B33400806E10 /* SwiftUI.framework in Frameworks */,
+				CB5136562B82B33400806E10 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -59,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				3F920AB32B7BA9E800480441 /* Plantify */,
+				CB5136592B82B33400806E10 /* PlantifyWidget1 */,
+				CB5136542B82B33400806E10 /* Frameworks */,
 				3F920AB22B7BA9E800480441 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				3F920AB12B7BA9E800480441 /* Plantify.app */,
+				CB5136532B82B33400806E10 /* PlantifyWidget1Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,6 +153,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		CB5136542B82B33400806E10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB5136552B82B33400806E10 /* WidgetKit.framework */,
+				CB5136572B82B33400806E10 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB5136592B82B33400806E10 /* PlantifyWidget1 */ = {
+			isa = PBXGroup;
+			children = (
+				CB51365A2B82B33400806E10 /* PlantifyWidget1Bundle.swift */,
+				CB51365C2B82B33400806E10 /* PlantifyWidget1.swift */,
+				CB51365E2B82B33400806E10 /* AppIntent.swift */,
+				CB5136602B82B33500806E10 /* Assets.xcassets */,
+				CB5136622B82B33500806E10 /* Info.plist */,
+			);
+			path = PlantifyWidget1;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,15 +184,34 @@
 				3F920AAD2B7BA9E800480441 /* Sources */,
 				3F920AAE2B7BA9E800480441 /* Frameworks */,
 				3F920AAF2B7BA9E800480441 /* Resources */,
+				CB5136692B82B33500806E10 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CB5136642B82B33500806E10 /* PBXTargetDependency */,
 			);
 			name = Plantify;
 			productName = Plantify;
 			productReference = 3F920AB12B7BA9E800480441 /* Plantify.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CB5136522B82B33400806E10 /* PlantifyWidget1Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB5136662B82B33500806E10 /* Build configuration list for PBXNativeTarget "PlantifyWidget1Extension" */;
+			buildPhases = (
+				CB51364F2B82B33400806E10 /* Sources */,
+				CB5136502B82B33400806E10 /* Frameworks */,
+				CB5136512B82B33400806E10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlantifyWidget1Extension;
+			productName = PlantifyWidget1Extension;
+			productReference = CB5136532B82B33400806E10 /* PlantifyWidget1Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -129,11 +220,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					3F920AB02B7BA9E800480441 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					CB5136522B82B33400806E10 = {
+						CreatedOnToolsVersion = 15.1;
 					};
 				};
 			};
@@ -151,6 +245,7 @@
 			projectRoot = "";
 			targets = (
 				3F920AB02B7BA9E800480441 /* Plantify */,
+				CB5136522B82B33400806E10 /* PlantifyWidget1Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -162,6 +257,14 @@
 			files = (
 				3F920ABD2B7BA9E900480441 /* Preview Assets.xcassets in Resources */,
 				3F920AB92B7BA9E900480441 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB5136512B82B33400806E10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB5136612B82B33500806E10 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +291,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CB51364F2B82B33400806E10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB51365D2B82B33400806E10 /* PlantifyWidget1.swift in Sources */,
+				CB51365B2B82B33400806E10 /* PlantifyWidget1Bundle.swift in Sources */,
+				CB51365F2B82B33400806E10 /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB5136642B82B33500806E10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB5136522B82B33400806E10 /* PlantifyWidget1Extension */;
+			targetProxy = CB5136632B82B33500806E10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3F920ABE2B7BA9E900480441 /* Debug */ = {
@@ -308,16 +429,18 @@
 		3F920AC12B7BA9E900480441 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Plantify/Plantify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Plantify/Preview Content\"";
-				DEVELOPMENT_TEAM = DQJTBLR47X;
+				DEVELOPMENT_TEAM = 2LZ55435J9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This will let you take photos";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -348,16 +471,18 @@
 		3F920AC22B7BA9E900480441 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Plantify/Plantify.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Plantify/Preview Content\"";
-				DEVELOPMENT_TEAM = DQJTBLR47X;
+				DEVELOPMENT_TEAM = 2LZ55435J9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This will let you take photos";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -385,6 +510,65 @@
 			};
 			name = Release;
 		};
+		CB5136672B82B33500806E10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2LZ55435J9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlantifyWidget1/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PlantifyWidget1;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lana.Plantify.PlantifyWidget1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CB5136682B82B33500806E10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2LZ55435J9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlantifyWidget1/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PlantifyWidget1;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lana.Plantify.PlantifyWidget1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -402,6 +586,15 @@
 			buildConfigurations = (
 				3F920AC12B7BA9E900480441 /* Debug */,
 				3F920AC22B7BA9E900480441 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB5136662B82B33500806E10 /* Build configuration list for PBXNativeTarget "PlantifyWidget1Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB5136672B82B33500806E10 /* Debug */,
+				CB5136682B82B33500806E10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
