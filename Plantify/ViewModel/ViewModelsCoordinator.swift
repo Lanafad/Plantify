@@ -10,7 +10,9 @@ import Foundation
 class ViewModelCoordinator : ObservableObject {
     
     var plantCardViewModel: PlantCardViewModel
+    
     @Published var checkCards: [CheckCard] = []
+    
 
     init() {
         self.plantCardViewModel = PlantCardViewModel()

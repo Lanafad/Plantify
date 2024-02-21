@@ -12,7 +12,7 @@ struct MainView: View {
     @StateObject var plantCardViewModel = PlantCardViewModel()
     @StateObject var viewModelsCoordinator = ViewModelCoordinator()
 
-
+//    @AppStorage("CheckCards", store: UserDefaults(suiteName: "groups.lana.Plantify")) 
 
     var body: some View {
 

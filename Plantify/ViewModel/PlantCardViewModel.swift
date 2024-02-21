@@ -10,7 +10,7 @@ import SwiftUI
 
 class PlantCardViewModel : ObservableObject {
     
-    var coordinator: ViewModelCoordinator?
+    var coordinator : ViewModelCoordinator?
 
     @Published var PlantCards : [PlantCard] = []
     @Published var isShowingSheet = false
@@ -116,58 +116,9 @@ class PlantCardViewModel : ObservableObject {
         return PotDictionary[key]
 
     }
-    
-    func wateringSchedule(watering : Int) -> [Int]{
-        var arr = [0]
-        switch watering{
-        case 1:
-            arr.append(1)
-            return arr
-            
-        case 2:
-            let T = [1,4]
-            arr.append(contentsOf: T)
-            return arr        
-        
-        case 3:
-            let T = [2,4,6]
-            arr.append(contentsOf: T)
-            return arr        
-        
-        case 4:
-            let T = [1,3,5,7]
-            arr.append(contentsOf: T)
-            return arr        
-        
-        case 5:
-            let T = [1,3,4,5,7]
-            arr.append(contentsOf: T)
-            return arr        
-        
-        case 6:
-            let T = [1,2,3,4,5,6]
-            arr.append(contentsOf: T)
-            return arr        
-        
-        case 7:
-            let T = [1,2,3,4,5,6,7]
-            arr.append(contentsOf: T)
-            return arr
 
-     
-        default:
-            return arr
-        }
-        
-    }
     
-    func isToday(_ array: [Int]) -> Bool{
-        let calendar = Calendar.current
-        let today = Date()
-        let weekday = calendar.component(.weekday, from: today)
-        
-        return array.contains(weekday)
-    }
+
     
 
     

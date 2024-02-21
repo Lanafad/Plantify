@@ -7,7 +7,7 @@
 
 
 struct CheckCard : Hashable {
-    
+
     var plantName : String
     var plantType : PlantCardViewModel.PlantTypes
     var watering : Int
