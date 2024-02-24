@@ -2,52 +2,55 @@
 //  PlantifyWidget.swift
 //  PlantifyWidget
 //
-//  Created by lana alfaadhel on 20/02/2024.
+//  Created by lana alfaadhel on 24/02/2024.
 //
 
 import WidgetKit
 import SwiftUI
+import SwiftData
 
-struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
+struct Provider: TimelineProvider {
+    @MainActor func placeholder(in context: Context) -> SimpleEntry {
+        SimpleEntry(date: Date(), checkCards: getChecCards())
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration)
+    @MainActor func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+        let entry = SimpleEntry(date: Date(), checkCards: getChecCards())
+        completion(entry)
+    }
+
+    @MainActor func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+
+        let timeline = Timeline(entries: [SimpleEntry(date: .now, checkCards: getChecCards())], policy: .after(.now.advanced(by: 60 * 5)))
+        completion(timeline)
     }
     
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
+    @MainActor private func getChecCards() -> [CheckCard]{
+        guard let modelContainer = try? ModelContainer(for: CheckCard.self) else {
+            return []
         }
-
-        return Timeline(entries: entries, policy: .atEnd)
+        
+        let descriptor = FetchDescriptor<CheckCard>()
+        let checkCards = try? modelContainer.mainContext.fetch(descriptor)
+        
+        return checkCards ?? []
     }
 }
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationAppIntent
+    let checkCards : [CheckCard]
 }
 
 struct PlantifyWidgetEntryView : View {
-    
-    
     var entry: Provider.Entry
 
     var body: some View {
-        
         VStack {
             HStack{
                 Text("Today")
                     .font(.system(.title2, design: .rounded) )
+                    .foregroundStyle(.titleText)
                     .bold()
                 
                 Spacer()
@@ -56,69 +59,52 @@ struct PlantifyWidgetEntryView : View {
                     .font(.system(.title2, design: .rounded) )
                     .bold()
                     .foregroundColor(.icons)
-                
-                
+            }
+            
+                        if (entry.checkCards.isEmpty) {
+            
+                            VStack{
+                                Text("no watering today")
+                                    .font(.system(.title2, design: .rounded) )
+                                    .foregroundStyle(.titleText)
 
-                    
-            }
-            
-//            if viewModelsCoordinator.checkCards.isEmpty {
-//                
-//                VStack{
-//                    
-//                }
-//                .frame(width: 120, height: 70)
-//            } else{
-                
-                
-                
-//                ForEach(viewModelsCoordinator.checkCards, id: \.self){
-//                    checkcard in
-                    
-                    VStack{
-                        
-                        HStack{
+                            }
+                            .frame(width: 120, height: 70)
+                        } else{
                             
                             
-                            Button(action: {
-//                                viewModelsCoordinator.wateringDone(checkCard: checkcard, WateringPerWeek: checkcard.watering)
-                            }, label: {
-                                Circle()
-                                    .stroke(
-                                        Color.icons,
-                                        style: StrokeStyle(lineWidth: 2)
-                                    )
-                                    .frame(width: 12)
+                            ForEach(entry.checkCards) { checkCard in
                                 
-                            })
-  
-                            
-                            
-//                            Text("\(checkcard.plantName)")
-//                                .font(.system(size: 15))
-                            
-                            
-                            
-                            
-                            
+                                VStack{
+                                    HStack{
+                                        Button {} label: {
+                                            Circle()
+                                                .stroke(
+                                                    Color.icons,
+                                                    style: StrokeStyle(lineWidth: 2)
+                                                )
+                                                .frame(width: 12)
+                                        }
+                                        
+                                        Text(checkCard.plantName)
+                                            .font(.system(size: 15))
+
+                                    }
+                                    .frame(width: 100, alignment: .leading)
+                                    
+                                    Line()
+                                        .stroke(style: .init(dash: [1]))
+                                        .frame(width: 90)
+                                        .opacity(0.5)
+                                        .frame(width: 100, alignment: .trailing)
+
+                                }
+                                
+                            }
                         }
-                        .frame(width: 100, alignment: .leading)
-                        
-                        Line()
-                            .stroke(style: .init(dash: [1]))
-                            .frame(width: 90)
-                            .opacity(0.5)
-                            .frame(width: 100, alignment: .trailing)
-                    }
-                    
-                    
                 }
-            }
-            
-        
-        }
-//    }
-//}
+    }
+}
 
 struct Line: Shape {
     func path(in rect: CGRect) -> Path {
@@ -133,29 +119,24 @@ struct PlantifyWidget: Widget {
     let kind: String = "PlantifyWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            PlantifyWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            if #available(iOS 17.0, *) {
+                PlantifyWidgetEntryView(entry: entry)
+                    .containerBackground(.screenBackground, for: .widget)
+            } else {
+                PlantifyWidgetEntryView(entry: entry)
+                    .padding()
+                    .background()
+            }
         }
-    }
-}
-
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
+        .configurationDisplayName("My Widget")
+        .description("This is an example widget.")
     }
 }
 
 #Preview(as: .systemSmall) {
     PlantifyWidget()
 } timeline: {
-    SimpleEntry(date: .now, configuration: .smiley)
+    SimpleEntry(date: .now, checkCards : [] )
+//    SimpleEntry(date: .now, checkCards : [] )
 }

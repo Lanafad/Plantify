@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SuccessfullyView: View {
     
-    @State var successfullyNavigation : Bool
 
-    @State var isShowingSheet: Bool
+    
+    @Environment (\.dismiss) var dismiss
+    @State var isShowingSheet : Bool
+
 
     var body: some View {
         VStack {
@@ -29,8 +31,8 @@ struct SuccessfullyView: View {
             Spacer()
             
             Button(action: {
-                isShowingSheet.toggle()
-                successfullyNavigation.toggle()
+                dismiss()
+                isShowingSheet = false
             }, label: {
                 ZStack{
                 RoundedRectangle(cornerRadius: 10)

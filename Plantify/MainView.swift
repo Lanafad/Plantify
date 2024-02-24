@@ -83,7 +83,7 @@ struct MainView: View {
                         
                     } else {
                         
-                        
+                        ScrollView{
                         VStack{
                             
                             ForEach(checkCards , id: \.self){
@@ -109,7 +109,7 @@ struct MainView: View {
                                                 .padding()
                                         })
                                         
-                                       
+                                        
                                         
                                         VStack(alignment: .leading){
                                             Text("\(CheckCard.plantName)")
@@ -123,12 +123,15 @@ struct MainView: View {
                                         
                                     }
                                     .frame(width: 350, height: 66, alignment: .leading)
-
+                                    
                                 }
                             }
                             
                         }
+                        
+                    }
                         .frame(width: 350, height: 270, alignment: .top)
+
                         
                     }
                     
@@ -358,12 +361,16 @@ struct MainView: View {
         progress = CGFloat(checkWatering) / CGFloat(WateringPerWeek)
 
         print("watering progress updated \(progress)")
-        if let index = checkCards.firstIndex(of: checkCard){
-            context.delete(checkCards[index])
-            print("card removed\(checkCards)")
+        
+        if (checkWatering == WateringPerWeek){
+            
+            
+            if let index = checkCards.firstIndex(of: checkCard){
+                context.delete(checkCards[index])
+                print("card removed\(checkCards)")
+            }
+            
         }
-
-
 
     }
 
@@ -388,6 +395,8 @@ struct MainView: View {
         @State var isShowingSheet : Bool
         
         @Environment(\.modelContext) var context
+        @Environment (\.dismiss) var dismiss
+
 
         
         var body: some View {
@@ -486,7 +495,7 @@ struct MainView: View {
                             HStack{
                                 Text("Watering")
                                     Spacer()
-                                TextField("kk", value: $selectedWatering, format: .number)
+                                TextField("0", value: $selectedWatering, format: .number)
                                 Text("/ week")
                             }
                             .padding()
@@ -494,7 +503,7 @@ struct MainView: View {
                         
                         .navigationBarItems(
                             leading: Button("Cancel") {
-                                isShowingSheet.toggle()
+                                dismiss()
                             }.foregroundColor(.buttonsBackground),
                             
                             trailing:
@@ -506,10 +515,12 @@ struct MainView: View {
                                         
                                         context.insert(CreatePlant(PlantName: selectedName, PlantType: selectedType, PlantSize: selectedPot, PlantLight: selectedLight, Watering: selectedWatering))
                                         
+                                        
                                         try! context.save()
- 
-                                            successfullyNavigation.toggle()
-                                            isShowingSheet.toggle()
+
+                                        successfullyNavigation.toggle()
+                                        
+                                        
                                         }
                                     .foregroundColor(.buttonsBackground)
 
@@ -518,7 +529,36 @@ struct MainView: View {
 
                             }
                                 .fullScreenCover(isPresented: $successfullyNavigation) {
-                                    SuccessfullyView(successfullyNavigation: successfullyNavigation, isShowingSheet: isShowingSheet)
+                                    VStack {
+                                        Spacer()
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .font(.system(size: 100))
+                                            .foregroundColor(.icons)
+                                            .padding()
+                                        
+                                        Text("Successfully Added!!")
+                                            .font(.title)
+                                            .foregroundColor(.primary)
+                                            .padding()
+                                        
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            dismiss()
+                                        }, label: {
+                                            ZStack{
+                                            RoundedRectangle(cornerRadius: 10)
+                                                    .frame(width: 358, height: 50)
+                                                    .foregroundColor(.buttonsBackground)
+                                                    .padding()
+                                                
+                                                Text("Done")
+                                                    .font(.headline)
+                                                    .foregroundColor(.screenBackground)
+                                                    .padding()
+                                            }
+                                        })
+                                    }
                                 }
                         )
                         .navigationBarTitle("Add Office Plant", displayMode: .inline)

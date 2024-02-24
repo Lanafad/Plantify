@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F003CD82B84CB3D006C2758 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F003CD72B84CB3D006C2758 /* WidgetKit.framework */; };
-		3F003CDA2B84CB3D006C2758 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F003CD92B84CB3D006C2758 /* SwiftUI.framework */; };
-		3F003CDD2B84CB3D006C2758 /* PlantifyWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F003CDC2B84CB3D006C2758 /* PlantifyWidgetBundle.swift */; };
-		3F003CDF2B84CB3D006C2758 /* PlantifyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F003CDE2B84CB3D006C2758 /* PlantifyWidget.swift */; };
-		3F003CE12B84CB3D006C2758 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F003CE02B84CB3D006C2758 /* AppIntent.swift */; };
-		3F003CE32B84CB3E006C2758 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F003CE22B84CB3E006C2758 /* Assets.xcassets */; };
-		3F003CE72B84CB3E006C2758 /* PlantifyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3F003CD52B84CB3D006C2758 /* PlantifyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3F23865A2B8221B300E94E6B /* SuccessfullyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2386592B8221B300E94E6B /* SuccessfullyView.swift */; };
 		3F23865C2B82C46B00E94E6B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23865B2B82C46B00E94E6B /* SplashView.swift */; };
 		3F511B3F2B80D0E2003F05CD /* EditPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F511B3E2B80D0E2003F05CD /* EditPlantView.swift */; };
@@ -24,15 +17,28 @@
 		3F920ACE2B7BF2C000480441 /* PlantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920ACD2B7BF2C000480441 /* PlantCard.swift */; };
 		3FD3D1282B88EEA1005EA9F5 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1272B88EEA1005EA9F5 /* Plant.swift */; };
 		3FD3D12A2B88F31C005EA9F5 /* CheckCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1292B88F31C005EA9F5 /* CheckCard.swift */; };
+		3FD3D1532B8A5581005EA9F5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F003CD72B84CB3D006C2758 /* WidgetKit.framework */; };
+		3FD3D1542B8A5581005EA9F5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F003CD92B84CB3D006C2758 /* SwiftUI.framework */; };
+		3FD3D1572B8A5581005EA9F5 /* PlantifyWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1562B8A5581005EA9F5 /* PlantifyWidgetBundle.swift */; };
+		3FD3D1592B8A5581005EA9F5 /* PlantifyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1582B8A5581005EA9F5 /* PlantifyWidget.swift */; };
+		3FD3D15B2B8A5582005EA9F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD3D15A2B8A5582005EA9F5 /* Assets.xcassets */; };
+		3FD3D15F2B8A5582005EA9F5 /* PlantifyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3FD3D1522B8A5581005EA9F5 /* PlantifyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3FD3D1632B8A55C5005EA9F5 /* EditPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F511B3E2B80D0E2003F05CD /* EditPlantView.swift */; };
+		3FD3D1642B8A55C8005EA9F5 /* CheckCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1292B88F31C005EA9F5 /* CheckCard.swift */; };
+		3FD3D1652B8A55CB005EA9F5 /* PlantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920ACD2B7BF2C000480441 /* PlantCard.swift */; };
+		3FD3D1662B8A55CE005EA9F5 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1272B88EEA1005EA9F5 /* Plant.swift */; };
+		3FD3D1672B8A55D1005EA9F5 /* SuccessfullyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2386592B8221B300E94E6B /* SuccessfullyView.swift */; };
+		3FD3D1692B8A55D8005EA9F5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920ACB2B7BF2B800480441 /* MainView.swift */; };
+		3FD3D16A2B8A55DB005EA9F5 /* SeeAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA35962B7C08C7005EB44A /* SeeAllView.swift */; };
 		3FDA35972B7C08C7005EB44A /* SeeAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA35962B7C08C7005EB44A /* SeeAllView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3F003CE52B84CB3E006C2758 /* PBXContainerItemProxy */ = {
+		3FD3D15D2B8A5582005EA9F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F920AA92B7BA9E800480441 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3F003CD42B84CB3D006C2758;
+			remoteGlobalIDString = 3FD3D1512B8A5581005EA9F5;
 			remoteInfo = PlantifyWidgetExtension;
 		};
 /* End PBXContainerItemProxy section */
@@ -44,7 +50,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				3F003CE72B84CB3E006C2758 /* PlantifyWidgetExtension.appex in Embed Foundation Extensions */,
+				3FD3D15F2B8A5582005EA9F5 /* PlantifyWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,14 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3F003CD52B84CB3D006C2758 /* PlantifyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PlantifyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F003CD72B84CB3D006C2758 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3F003CD92B84CB3D006C2758 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		3F003CDC2B84CB3D006C2758 /* PlantifyWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyWidgetBundle.swift; sourceTree = "<group>"; };
-		3F003CDE2B84CB3D006C2758 /* PlantifyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyWidget.swift; sourceTree = "<group>"; };
-		3F003CE02B84CB3D006C2758 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
-		3F003CE22B84CB3E006C2758 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3F003CE42B84CB3E006C2758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F003CF32B8544A6006C2758 /* PlantifyWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlantifyWidgetExtension.entitlements; sourceTree = "<group>"; };
 		3F2386592B8221B300E94E6B /* SuccessfullyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfullyView.swift; sourceTree = "<group>"; };
 		3F23865B2B82C46B00E94E6B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -73,23 +73,28 @@
 		3F920ACD2B7BF2C000480441 /* PlantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCard.swift; sourceTree = "<group>"; };
 		3FD3D1272B88EEA1005EA9F5 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		3FD3D1292B88F31C005EA9F5 /* CheckCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCard.swift; sourceTree = "<group>"; };
+		3FD3D1522B8A5581005EA9F5 /* PlantifyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PlantifyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FD3D1562B8A5581005EA9F5 /* PlantifyWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyWidgetBundle.swift; sourceTree = "<group>"; };
+		3FD3D1582B8A5581005EA9F5 /* PlantifyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyWidget.swift; sourceTree = "<group>"; };
+		3FD3D15A2B8A5582005EA9F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FD3D15C2B8A5582005EA9F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FDA35962B7C08C7005EB44A /* SeeAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3F003CD22B84CB3D006C2758 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F003CDA2B84CB3D006C2758 /* SwiftUI.framework in Frameworks */,
-				3F003CD82B84CB3D006C2758 /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3F920AAE2B7BA9E800480441 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FD3D14F2B8A5581005EA9F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FD3D1542B8A5581005EA9F5 /* SwiftUI.framework in Frameworks */,
+				3FD3D1532B8A5581005EA9F5 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,24 +110,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3F003CDB2B84CB3D006C2758 /* PlantifyWidget */ = {
-			isa = PBXGroup;
-			children = (
-				3F003CDC2B84CB3D006C2758 /* PlantifyWidgetBundle.swift */,
-				3F003CDE2B84CB3D006C2758 /* PlantifyWidget.swift */,
-				3F003CE02B84CB3D006C2758 /* AppIntent.swift */,
-				3F003CE22B84CB3E006C2758 /* Assets.xcassets */,
-				3F003CE42B84CB3E006C2758 /* Info.plist */,
-			);
-			path = PlantifyWidget;
-			sourceTree = "<group>";
-		};
 		3F920AA82B7BA9E800480441 = {
 			isa = PBXGroup;
 			children = (
 				3F003CF32B8544A6006C2758 /* PlantifyWidgetExtension.entitlements */,
 				3F920AB32B7BA9E800480441 /* Plantify */,
-				3F003CDB2B84CB3D006C2758 /* PlantifyWidget */,
+				3FD3D1552B8A5581005EA9F5 /* PlantifyWidget */,
 				3F003CD62B84CB3D006C2758 /* Frameworks */,
 				3F920AB22B7BA9E800480441 /* Products */,
 			);
@@ -132,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				3F920AB12B7BA9E800480441 /* Plantify.app */,
-				3F003CD52B84CB3D006C2758 /* PlantifyWidgetExtension.appex */,
+				3FD3D1522B8A5581005EA9F5 /* PlantifyWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,26 +157,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		3FD3D1552B8A5581005EA9F5 /* PlantifyWidget */ = {
+			isa = PBXGroup;
+			children = (
+				3FD3D1562B8A5581005EA9F5 /* PlantifyWidgetBundle.swift */,
+				3FD3D1582B8A5581005EA9F5 /* PlantifyWidget.swift */,
+				3FD3D15A2B8A5582005EA9F5 /* Assets.xcassets */,
+				3FD3D15C2B8A5582005EA9F5 /* Info.plist */,
+			);
+			path = PlantifyWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3F003CD42B84CB3D006C2758 /* PlantifyWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3F003CEB2B84CB3E006C2758 /* Build configuration list for PBXNativeTarget "PlantifyWidgetExtension" */;
-			buildPhases = (
-				3F003CD12B84CB3D006C2758 /* Sources */,
-				3F003CD22B84CB3D006C2758 /* Frameworks */,
-				3F003CD32B84CB3D006C2758 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PlantifyWidgetExtension;
-			productName = PlantifyWidgetExtension;
-			productReference = 3F003CD52B84CB3D006C2758 /* PlantifyWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		3F920AB02B7BA9E800480441 /* Plantify */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F920AC02B7BA9E900480441 /* Build configuration list for PBXNativeTarget "Plantify" */;
@@ -196,12 +183,29 @@
 			buildRules = (
 			);
 			dependencies = (
-				3F003CE62B84CB3E006C2758 /* PBXTargetDependency */,
+				3FD3D15E2B8A5582005EA9F5 /* PBXTargetDependency */,
 			);
 			name = Plantify;
 			productName = Plantify;
 			productReference = 3F920AB12B7BA9E800480441 /* Plantify.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3FD3D1512B8A5581005EA9F5 /* PlantifyWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FD3D1602B8A5582005EA9F5 /* Build configuration list for PBXNativeTarget "PlantifyWidgetExtension" */;
+			buildPhases = (
+				3FD3D14E2B8A5581005EA9F5 /* Sources */,
+				3FD3D14F2B8A5581005EA9F5 /* Frameworks */,
+				3FD3D1502B8A5581005EA9F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlantifyWidgetExtension;
+			productName = PlantifyWidgetExtension;
+			productReference = 3FD3D1522B8A5581005EA9F5 /* PlantifyWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -213,10 +217,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					3F003CD42B84CB3D006C2758 = {
+					3F920AB02B7BA9E800480441 = {
 						CreatedOnToolsVersion = 15.0;
 					};
-					3F920AB02B7BA9E800480441 = {
+					3FD3D1512B8A5581005EA9F5 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -235,20 +239,12 @@
 			projectRoot = "";
 			targets = (
 				3F920AB02B7BA9E800480441 /* Plantify */,
-				3F003CD42B84CB3D006C2758 /* PlantifyWidgetExtension */,
+				3FD3D1512B8A5581005EA9F5 /* PlantifyWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3F003CD32B84CB3D006C2758 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F003CE32B84CB3E006C2758 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3F920AAF2B7BA9E800480441 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,19 +254,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		3F003CD12B84CB3D006C2758 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		3FD3D1502B8A5581005EA9F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F003CDF2B84CB3D006C2758 /* PlantifyWidget.swift in Sources */,
-				3F003CDD2B84CB3D006C2758 /* PlantifyWidgetBundle.swift in Sources */,
-				3F003CE12B84CB3D006C2758 /* AppIntent.swift in Sources */,
+				3FD3D15B2B8A5582005EA9F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		3F920AAD2B7BA9E800480441 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,78 +281,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3FD3D14E2B8A5581005EA9F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FD3D16A2B8A55DB005EA9F5 /* SeeAllView.swift in Sources */,
+				3FD3D1632B8A55C5005EA9F5 /* EditPlantView.swift in Sources */,
+				3FD3D1692B8A55D8005EA9F5 /* MainView.swift in Sources */,
+				3FD3D1662B8A55CE005EA9F5 /* Plant.swift in Sources */,
+				3FD3D1672B8A55D1005EA9F5 /* SuccessfullyView.swift in Sources */,
+				3FD3D1592B8A5581005EA9F5 /* PlantifyWidget.swift in Sources */,
+				3FD3D1652B8A55CB005EA9F5 /* PlantCard.swift in Sources */,
+				3FD3D1642B8A55C8005EA9F5 /* CheckCard.swift in Sources */,
+				3FD3D1572B8A5581005EA9F5 /* PlantifyWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3F003CE62B84CB3E006C2758 /* PBXTargetDependency */ = {
+		3FD3D15E2B8A5582005EA9F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3F003CD42B84CB3D006C2758 /* PlantifyWidgetExtension */;
-			targetProxy = 3F003CE52B84CB3E006C2758 /* PBXContainerItemProxy */;
+			target = 3FD3D1512B8A5581005EA9F5 /* PlantifyWidgetExtension */;
+			targetProxy = 3FD3D15D2B8A5582005EA9F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		3F003CE92B84CB3E006C2758 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = PlantifyWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DQJTBLR47X;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PlantifyWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = PlantifyWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lana.Plantify.PlantifyWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		3F003CEA2B84CB3E006C2758 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = PlantifyWidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DQJTBLR47X;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PlantifyWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = PlantifyWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = lana.Plantify.PlantifyWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		3F920ABE2B7BA9E900480441 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -555,18 +504,70 @@
 			};
 			name = Release;
 		};
+		3FD3D1612B8A5582005EA9F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PlantifyWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DQJTBLR47X;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlantifyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PlantifyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lana.Plantify.PlantifyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FD3D1622B8A5582005EA9F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PlantifyWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DQJTBLR47X;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PlantifyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PlantifyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = lana.Plantify.PlantifyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3F003CEB2B84CB3E006C2758 /* Build configuration list for PBXNativeTarget "PlantifyWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3F003CE92B84CB3E006C2758 /* Debug */,
-				3F003CEA2B84CB3E006C2758 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		3F920AAC2B7BA9E800480441 /* Build configuration list for PBXProject "Plantify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -581,6 +582,15 @@
 			buildConfigurations = (
 				3F920AC12B7BA9E900480441 /* Debug */,
 				3F920AC22B7BA9E900480441 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FD3D1602B8A5582005EA9F5 /* Build configuration list for PBXNativeTarget "PlantifyWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FD3D1612B8A5582005EA9F5 /* Debug */,
+				3FD3D1622B8A5582005EA9F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
