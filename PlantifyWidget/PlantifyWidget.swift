@@ -55,7 +55,7 @@ struct PlantifyWidgetEntryView : View {
                 
                 Spacer()
                 
-                Text("0")
+                Text("\(entry.checkCards.count)")
                     .font(.system(.title2, design: .rounded) )
                     .bold()
                     .foregroundColor(.icons)
