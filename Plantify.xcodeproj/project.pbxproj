@@ -14,23 +14,17 @@
 		3F003CE12B84CB3D006C2758 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F003CE02B84CB3D006C2758 /* AppIntent.swift */; };
 		3F003CE32B84CB3E006C2758 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F003CE22B84CB3E006C2758 /* Assets.xcassets */; };
 		3F003CE72B84CB3E006C2758 /* PlantifyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3F003CD52B84CB3D006C2758 /* PlantifyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3F003CF92B854D87006C2758 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F003CF82B854D87006C2758 /* Plant.swift */; };
 		3F23865A2B8221B300E94E6B /* SuccessfullyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2386592B8221B300E94E6B /* SuccessfullyView.swift */; };
 		3F23865C2B82C46B00E94E6B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F23865B2B82C46B00E94E6B /* SplashView.swift */; };
 		3F511B3F2B80D0E2003F05CD /* EditPlantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F511B3E2B80D0E2003F05CD /* EditPlantView.swift */; };
-		3F7ADC1A2B8009A300B583C5 /* ViewModelsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */; };
 		3F920AB52B7BA9E800480441 /* PlantifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920AB42B7BA9E800480441 /* PlantifyApp.swift */; };
-		3F920AB72B7BA9E800480441 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920AB62B7BA9E800480441 /* ContentView.swift */; };
 		3F920AB92B7BA9E900480441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F920AB82B7BA9E900480441 /* Assets.xcassets */; };
 		3F920ABD2B7BA9E900480441 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F920ABC2B7BA9E900480441 /* Preview Assets.xcassets */; };
 		3F920ACC2B7BF2B800480441 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920ACB2B7BF2B800480441 /* MainView.swift */; };
 		3F920ACE2B7BF2C000480441 /* PlantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920ACD2B7BF2C000480441 /* PlantCard.swift */; };
-		3F920AD02B7BF2CA00480441 /* PlantCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920ACF2B7BF2CA00480441 /* PlantCardView.swift */; };
-		3F920AD22B7BF2D400480441 /* PlantCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920AD12B7BF2D400480441 /* PlantCardViewModel.swift */; };
+		3FD3D1282B88EEA1005EA9F5 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1272B88EEA1005EA9F5 /* Plant.swift */; };
+		3FD3D12A2B88F31C005EA9F5 /* CheckCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1292B88F31C005EA9F5 /* CheckCard.swift */; };
 		3FDA35972B7C08C7005EB44A /* SeeAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA35962B7C08C7005EB44A /* SeeAllView.swift */; };
-		3FDA359B2B7CBB6A005EB44A /* PlantSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */; };
-		3FDA359F2B7EDCCA005EB44A /* CheckCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA359E2B7EDCCA005EB44A /* CheckCard.swift */; };
-		3FDA35A12B7EDCD8005EB44A /* CheckCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA35A02B7EDCD8005EB44A /* CheckCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,25 +61,19 @@
 		3F003CE22B84CB3E006C2758 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F003CE42B84CB3E006C2758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F003CF32B8544A6006C2758 /* PlantifyWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlantifyWidgetExtension.entitlements; sourceTree = "<group>"; };
-		3F003CF82B854D87006C2758 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		3F2386592B8221B300E94E6B /* SuccessfullyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfullyView.swift; sourceTree = "<group>"; };
 		3F23865B2B82C46B00E94E6B /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		3F511B3E2B80D0E2003F05CD /* EditPlantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlantView.swift; sourceTree = "<group>"; };
-		3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelsCoordinator.swift; sourceTree = "<group>"; };
 		3F920AB12B7BA9E800480441 /* Plantify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plantify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F920AB42B7BA9E800480441 /* PlantifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyApp.swift; sourceTree = "<group>"; };
-		3F920AB62B7BA9E800480441 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3F920AB82B7BA9E900480441 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F920ABA2B7BA9E900480441 /* Plantify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Plantify.entitlements; sourceTree = "<group>"; };
 		3F920ABC2B7BA9E900480441 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F920ACB2B7BF2B800480441 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F920ACD2B7BF2C000480441 /* PlantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCard.swift; sourceTree = "<group>"; };
-		3F920ACF2B7BF2CA00480441 /* PlantCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCardView.swift; sourceTree = "<group>"; };
-		3F920AD12B7BF2D400480441 /* PlantCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCardViewModel.swift; sourceTree = "<group>"; };
+		3FD3D1272B88EEA1005EA9F5 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		3FD3D1292B88F31C005EA9F5 /* CheckCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCard.swift; sourceTree = "<group>"; };
 		3FDA35962B7C08C7005EB44A /* SeeAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllView.swift; sourceTree = "<group>"; };
-		3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSheet.swift; sourceTree = "<group>"; };
-		3FDA359E2B7EDCCA005EB44A /* CheckCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCard.swift; sourceTree = "<group>"; };
-		3FDA35A02B7EDCD8005EB44A /* CheckCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,34 +117,6 @@
 			path = PlantifyWidget;
 			sourceTree = "<group>";
 		};
-		3F003CF42B854B62006C2758 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3FDA359E2B7EDCCA005EB44A /* CheckCard.swift */,
-				3F920ACD2B7BF2C000480441 /* PlantCard.swift */,
-				3F003CF82B854D87006C2758 /* Plant.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		3F003CF62B854B9C006C2758 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3FDA35A02B7EDCD8005EB44A /* CheckCardView.swift */,
-				3F920ACF2B7BF2CA00480441 /* PlantCardView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3F003CF72B854C0A006C2758 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3F920AD12B7BF2D400480441 /* PlantCardViewModel.swift */,
-				3F7ADC192B8009A300B583C5 /* ViewModelsCoordinator.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		3F920AA82B7BA9E800480441 = {
 			isa = PBXGroup;
 			children = (
@@ -181,12 +141,10 @@
 			isa = PBXGroup;
 			children = (
 				3F920AB42B7BA9E800480441 /* PlantifyApp.swift */,
-				3F003CF42B854B62006C2758 /* Model */,
-				3F003CF62B854B9C006C2758 /* View */,
-				3F003CF72B854C0A006C2758 /* ViewModel */,
-				3F920AB62B7BA9E800480441 /* ContentView.swift */,
 				3F511B3E2B80D0E2003F05CD /* EditPlantView.swift */,
-				3FDA359A2B7CBB6A005EB44A /* PlantSheet.swift */,
+				3FD3D1292B88F31C005EA9F5 /* CheckCard.swift */,
+				3F920ACD2B7BF2C000480441 /* PlantCard.swift */,
+				3FD3D1272B88EEA1005EA9F5 /* Plant.swift */,
 				3F2386592B8221B300E94E6B /* SuccessfullyView.swift */,
 				3F23865B2B82C46B00E94E6B /* SplashView.swift */,
 				3F920ACB2B7BF2B800480441 /* MainView.swift */,
@@ -317,19 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FDA359F2B7EDCCA005EB44A /* CheckCard.swift in Sources */,
+				3FD3D12A2B88F31C005EA9F5 /* CheckCard.swift in Sources */,
 				3FDA35972B7C08C7005EB44A /* SeeAllView.swift in Sources */,
-				3F920AB72B7BA9E800480441 /* ContentView.swift in Sources */,
 				3F920ACE2B7BF2C000480441 /* PlantCard.swift in Sources */,
-				3FDA359B2B7CBB6A005EB44A /* PlantSheet.swift in Sources */,
 				3F920ACC2B7BF2B800480441 /* MainView.swift in Sources */,
 				3F511B3F2B80D0E2003F05CD /* EditPlantView.swift in Sources */,
-				3F003CF92B854D87006C2758 /* Plant.swift in Sources */,
-				3F920AD02B7BF2CA00480441 /* PlantCardView.swift in Sources */,
-				3FDA35A12B7EDCD8005EB44A /* CheckCardView.swift in Sources */,
-				3F7ADC1A2B8009A300B583C5 /* ViewModelsCoordinator.swift in Sources */,
+				3FD3D1282B88EEA1005EA9F5 /* Plant.swift in Sources */,
 				3F23865A2B8221B300E94E6B /* SuccessfullyView.swift in Sources */,
-				3F920AD22B7BF2D400480441 /* PlantCardViewModel.swift in Sources */,
 				3F920AB52B7BA9E800480441 /* PlantifyApp.swift in Sources */,
 				3F23865C2B82C46B00E94E6B /* SplashView.swift in Sources */,
 			);

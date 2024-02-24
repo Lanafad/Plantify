@@ -5,11 +5,13 @@
 //  Created by lana alfaadhel on 13/02/2024.
 //
 
+
 import SwiftUI
 
 struct SeeAllView: View {
     @State private var PickerSelection = 0
-    @StateObject var viewModelsCoordinator : ViewModelCoordinator
+    
+    @State var checkCards : [CheckCard]
 
 
     var body: some View {
@@ -27,7 +29,7 @@ struct SeeAllView: View {
             .padding(.bottom)
             
                     
-            if (viewModelsCoordinator.checkCards.isEmpty){
+            if (checkCards.isEmpty){
                     
                     VStack{
 
@@ -49,8 +51,45 @@ struct SeeAllView: View {
 
                     VStack{
 
-                        ForEach(viewModelsCoordinator.checkCards, id: \.self){
-                            CheckCard in CheckCardView(checkCard: CheckCard, viewModelsCoordinator: viewModelsCoordinator)
+                        ForEach(checkCards, id: \.self){
+                            CheckCard in
+                            ZStack{
+                                
+                                RoundedRectangle(cornerSize: CGSize(width: 16, height: 16))
+                                    .fill(Color(.cardBackground))
+                                    .frame(width: 350, height: 66)
+                                
+                                HStack{
+                                    
+                                    Button(action: {
+//                                        wateringDone(checkCard: CheckCard, WateringPerWeek: CheckCard.watering)
+                                        
+                                    }, label: {
+                                        
+                                        Circle()
+                                            .stroke(
+                                                Color.icons,
+                                                style: StrokeStyle(lineWidth: 2))
+                                            .frame(width: 24,height: 24)
+                                            .padding()
+                                    })
+                                    
+                                   
+                                    
+                                    VStack(alignment: .leading){
+                                        Text("\(CheckCard.plantName)")
+                                            .font(.title3)
+                                            .foregroundColor(.bodyText)
+                                        
+                                        Text("\(CheckCard.plantType.rawValue)")
+                                            .font(.caption)
+                                            .foregroundColor(.subtitleText)
+                                    }
+                                    
+                                }
+                                .frame(width: 350, height: 66, alignment: .leading)
+
+                            }
                     }
                     
                 }

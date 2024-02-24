@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct SuccessfullyView: View {
-    var isShowingSheet: Binding<Bool>
+    
+    @State var successfullyNavigation : Bool
+
+    @State var isShowingSheet: Bool
 
     var body: some View {
         VStack {
@@ -26,7 +29,8 @@ struct SuccessfullyView: View {
             Spacer()
             
             Button(action: {
-                isShowingSheet.wrappedValue = false
+                isShowingSheet.toggle()
+                successfullyNavigation.toggle()
             }, label: {
                 ZStack{
                 RoundedRectangle(cornerRadius: 10)
