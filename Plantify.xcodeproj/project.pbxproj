@@ -15,6 +15,11 @@
 		3F920ABD2B7BA9E900480441 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F920ABC2B7BA9E900480441 /* Preview Assets.xcassets */; };
 		3F920ACC2B7BF2B800480441 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920ACB2B7BF2B800480441 /* MainView.swift */; };
 		3F920ACE2B7BF2C000480441 /* PlantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F920ACD2B7BF2C000480441 /* PlantCard.swift */; };
+		3FBA48442B8B673A0071B7D6 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA48432B8B673A0071B7D6 /* PersistenceController.swift */; };
+		3FBA48452B8B673A0071B7D6 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA48432B8B673A0071B7D6 /* PersistenceController.swift */; };
+		3FBA48472B8B7BA10071B7D6 /* PlantifyAppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA48462B8B7BA10071B7D6 /* PlantifyAppIntent.swift */; };
+		3FBA48492B8B8A8C0071B7D6 /* ML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA48482B8B8A8C0071B7D6 /* ML.swift */; };
+		3FBA484B2B8B8CE60071B7D6 /* plantDD1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA484A2B8B8CE60071B7D6 /* plantDD1.mlmodel */; };
 		3FD3D1282B88EEA1005EA9F5 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1272B88EEA1005EA9F5 /* Plant.swift */; };
 		3FD3D12A2B88F31C005EA9F5 /* CheckCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3D1292B88F31C005EA9F5 /* CheckCard.swift */; };
 		3FD3D1532B8A5581005EA9F5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F003CD72B84CB3D006C2758 /* WidgetKit.framework */; };
@@ -71,6 +76,10 @@
 		3F920ABC2B7BA9E900480441 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F920ACB2B7BF2B800480441 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F920ACD2B7BF2C000480441 /* PlantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCard.swift; sourceTree = "<group>"; };
+		3FBA48432B8B673A0071B7D6 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		3FBA48462B8B7BA10071B7D6 /* PlantifyAppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantifyAppIntent.swift; sourceTree = "<group>"; };
+		3FBA48482B8B8A8C0071B7D6 /* ML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ML.swift; sourceTree = "<group>"; };
+		3FBA484A2B8B8CE60071B7D6 /* plantDD1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = plantDD1.mlmodel; sourceTree = "<group>"; };
 		3FD3D1272B88EEA1005EA9F5 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		3FD3D1292B88F31C005EA9F5 /* CheckCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCard.swift; sourceTree = "<group>"; };
 		3FD3D1522B8A5581005EA9F5 /* PlantifyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PlantifyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +151,9 @@
 				3F23865B2B82C46B00E94E6B /* SplashView.swift */,
 				3F920ACB2B7BF2B800480441 /* MainView.swift */,
 				3FDA35962B7C08C7005EB44A /* SeeAllView.swift */,
+				3FBA48432B8B673A0071B7D6 /* PersistenceController.swift */,
+				3FBA48482B8B8A8C0071B7D6 /* ML.swift */,
+				3FBA484A2B8B8CE60071B7D6 /* plantDD1.mlmodel */,
 				3F920AB82B7BA9E900480441 /* Assets.xcassets */,
 				3F920ABA2B7BA9E900480441 /* Plantify.entitlements */,
 				3F920ABB2B7BA9E900480441 /* Preview Content */,
@@ -162,6 +174,7 @@
 			children = (
 				3FD3D1562B8A5581005EA9F5 /* PlantifyWidgetBundle.swift */,
 				3FD3D1582B8A5581005EA9F5 /* PlantifyWidget.swift */,
+				3FBA48462B8B7BA10071B7D6 /* PlantifyAppIntent.swift */,
 				3FD3D15A2B8A5582005EA9F5 /* Assets.xcassets */,
 				3FD3D15C2B8A5582005EA9F5 /* Info.plist */,
 			);
@@ -272,10 +285,13 @@
 				3FD3D12A2B88F31C005EA9F5 /* CheckCard.swift in Sources */,
 				3FDA35972B7C08C7005EB44A /* SeeAllView.swift in Sources */,
 				3F920ACE2B7BF2C000480441 /* PlantCard.swift in Sources */,
+				3FBA48442B8B673A0071B7D6 /* PersistenceController.swift in Sources */,
 				3F920ACC2B7BF2B800480441 /* MainView.swift in Sources */,
 				3F511B3F2B80D0E2003F05CD /* EditPlantView.swift in Sources */,
 				3FD3D1282B88EEA1005EA9F5 /* Plant.swift in Sources */,
 				3F23865A2B8221B300E94E6B /* SuccessfullyView.swift in Sources */,
+				3FBA484B2B8B8CE60071B7D6 /* plantDD1.mlmodel in Sources */,
+				3FBA48492B8B8A8C0071B7D6 /* ML.swift in Sources */,
 				3F920AB52B7BA9E800480441 /* PlantifyApp.swift in Sources */,
 				3F23865C2B82C46B00E94E6B /* SplashView.swift in Sources */,
 			);
@@ -294,6 +310,8 @@
 				3FD3D1652B8A55CB005EA9F5 /* PlantCard.swift in Sources */,
 				3FD3D1642B8A55C8005EA9F5 /* CheckCard.swift in Sources */,
 				3FD3D1572B8A5581005EA9F5 /* PlantifyWidgetBundle.swift in Sources */,
+				3FBA48472B8B7BA10071B7D6 /* PlantifyAppIntent.swift in Sources */,
+				3FBA48452B8B673A0071B7D6 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -362,7 +362,7 @@ struct MainView: View {
 
         print("watering progress updated \(progress)")
         
-        if (checkWatering == WateringPerWeek){
+//        if (checkWatering == WateringPerWeek){
             
             
             if let index = checkCards.firstIndex(of: checkCard){
@@ -370,7 +370,7 @@ struct MainView: View {
                 print("card removed\(checkCards)")
             }
             
-        }
+//        }
 
     }
 

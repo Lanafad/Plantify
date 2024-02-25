@@ -9,6 +9,10 @@ import SwiftUI
 import AVFoundation
 import UIKit
 import ImageIO
+import UIKit
+import CoreML
+import Vision
+import SwiftUI
 
 
 struct EditPlantView: View {
@@ -18,6 +22,8 @@ struct EditPlantView: View {
 
     @State var LightDictionary = [String : String]()
     @State var PotDictionary = [String : String]()
+    
+    
     
     
     var body: some View {
@@ -296,45 +302,374 @@ func loadImage() {
 }
 
 
+
 struct CameraView: UIViewControllerRepresentable {
-@Binding var images: [UIImage] // Binding to update the array of images
-@Environment(\.presentationMode) var presentationMode
+    @Binding var isActive: Bool
+    @Binding var capturedImage: Data?
 
-class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    let parent: CameraView
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        let parent: CameraView
 
-    init(parent: CameraView) {
-        self.parent = parent
-    }
-
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let uiImage = info[.originalImage] as? UIImage {
-            parent.images.append(uiImage) // Append the captured image to the images array
+        init(parent: CameraView) {
+            self.parent = parent
         }
-        picker.dismiss(animated: true)
+
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[.originalImage] as? UIImage {
+                parent.capturedImage = image.jpegData(compressionQuality: 0.5)
+            }
+            parent.isActive = false
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.isActive = false
+        }
     }
 
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        parent.presentationMode.wrappedValue.dismiss()
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(parent: self)
+    }
+
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
+        // No update needed
     }
 }
 
-func makeCoordinator() -> Coordinator {
-    return Coordinator(parent: self)
+struct ML: View {
+    @State private var photo: Data?
+    @State private var plant: String = ""
+    @State private var error: Bool = false
+    @State private var isLoading: Bool = false
+    @State private var isCameraActive: Bool = false
+    @State private var isCaptureAvailable: Bool = UIImagePickerController.isSourceTypeAvailable(.camera)
+    @State private var showResult: Bool = false // Added state variable to control navigation
+    
+    var body: some View {
+        NavigationView { // Wrap the content in NavigationView
+            ZStack(alignment: .center){
+                
+                VStack{
+                    
+                    HStack{
+                        Spacer()
+                        if photo != nil{
+                            Button(action: {
+                                withAnimation{ self.photo = nil ; self.plant = ""}
+                            }
+                            , label: {
+                                Image(systemName: "gobackward")
+                                    .font(.system(size: 25, weight: .semibold, design: .rounded))
+                                    .foregroundColor(.green)
+                            }
+                            )
+                        }
+                    }
+                    .padding()
+                    .padding(.vertical,20)
+                    
+                    VStack(alignment: .center, spacing: -30){
+                        if photo == nil {
+                            if isCaptureAvailable{
+                                Button(action: {
+                                    isCameraActive.toggle()
+                                }, label: {
+                                    ZStack{
+                                        
+                                        //                                    Image("Blackblurebackground")
+                                        //                                        .resizable()
+                                        //                                        .scaledToFit()
+                                        //                                        .opacity(0.8)
+                                        //                                        .frame(width: 343)
+                                        
+                                        VStack{
+                                            Spacer()
+                                            Image("Blackblurebackground")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .opacity(0.8)
+                                                .frame(width: 343)
+                                                .padding()
+                                            Text("Click the Plant To Upload Photo!")
+                                                .font(.system(size: 25, weight: .semibold, design: .rounded))
+                                                .foregroundColor(.white)
+                                                .padding()
+                                        }
+                                        
+                                    }})
+                                .fullScreenCover(isPresented: $isCameraActive){
+                                    CameraView(isActive: $isCameraActive, capturedImage:  $photo)
+                                }
+                                .padding(.horizontal)
+                                .padding(.top, 50)
+                            }
+                        }else {
+                            if let Img = UIImage(data: photo!){
+                                
+                                Image(uiImage: Img)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 343, height: 343)
+                                    .clipShape(RoundedRectangle(cornerRadius:17,style: .circular))
+                                    .padding(.top, 50)
+                            }
+                        }
+                        if plant == ""{
+                            Button(action: {
+                                if photo != nil{
+                                    withAnimation{ isLoading = true ;
+                                        predictPlant()
+                                    }
+                                }
+                                
+                            }, label: {Text("Predict")
+                                .font(.system(size: 17, weight: .semibold, design: .rounded)).foregroundColor(self.photo == nil ? .gray : .green)
+                                .padding(10)
+                                .frame(width:245)
+                                
+                                
+                            })
+                            
+                            .buttonStyle(.bordered)
+                            .padding(.top, 140)
+                        } else {
+                            
+                            if !error {
+                                VStack(alignment: .leading){
+                                    HStack{
+                                        Text(self.plant == "" ?"" :"This plant is : \(plantType(string: plant))")
+                                            .font(.title2)
+                                            .bold()
+                                        Spacer()
+                                    }
+                                    //Text(plant)
+                                }.padding(25)
+                                .background((Color("color")).opacity(0.8).blur(radius: 5))
+                                Spacer()
+                            }
+                            
+                        }
+                        Spacer()
+                        
+                        
+                        
+                    }
+                }.alert(isPresented: $error){
+                    Alert(
+                        title: Text("Predection Error !"),
+                        message: Text("The photo has uploaded is not an Plant"),
+                        
+                        primaryButton: .destructive(
+                            Text("Select other photo"),
+                            
+                            action: { withAnimation{ photo = nil
+                                
+                            }}
+                        ),
+                        secondaryButton: .cancel()
+                    )
+                }
+                
+                if isLoading{
+                    VStack{
+                        ActivityIndicatorView()
+                        
+                        Text("Predicting...")
+                            .bold()
+                            .foregroundColor(.green)
+                    }
+                    .frame(width: 150, height: 155)
+                    .background(Color(.black).opacity(0.8))
+                    
+                    .cornerRadius(16)
+                }
+                
+            }
+            //.navigationBarTitle(Text("Plant Prediction"), displayMode: .inline) // Set navigation bar title
+            
+            // Navigate to ResultView when showResult is true
+            .sheet(isPresented: $showResult) {
+                ResultView(plant: self.plant) // Pass the predicted plant type to ResultView
+            }
+        }
+    }
+    
+    func plantType(string: String) -> String{
+        return string.components(separatedBy: ", ")[0]
+    }
+    
+    func predictPlant(){
+        
+        do {
+            let config = MLModelConfiguration()
+            config.computeUnits = .cpuOnly
+            
+            //          let Model = try AAClassifier(configuration: config)
+            let Model = try plantDD1(configuration: config)
+            
+            if let data = self.photo,
+               let image = UIImage.init(data: data),
+               let resizedImage = image.resizeImageTo(size:CGSize(width: 227, height: 227)),
+               let bufferImage = resizedImage.convertToBuffer(){
+                
+                print("✓ Photo done")
+                let prediction = try Model.prediction(image: bufferImage)
+                print("✓ Prediction done")
+                
+                
+                self.plant = prediction.target
+                print("the prediction is: \(self.plant)".uppercased())
+                isLoading = false
+                showResult = true // Set showResult to true to navigate to ResultView
+            }
+            
+        } catch {
+            self.error = true
+            print("something went wrong! \n \(error.localizedDescription) \n \n More Info: \n \(error)")
+        }
+    }
+    
 }
 
-func makeUIViewController(context: Context) -> UIImagePickerController {
-    let picker = UIImagePickerController()
-    picker.delegate = context.coordinator
-    picker.sourceType = .camera
-    picker.allowsEditing = true
-    return picker
+struct ResultView: View {
+    var plant: String
+    
+    var body: some View {
+        VStack {
+            if plant.lowercased() == "healthy" {
+                Spacer()
+                VStack{
+                    Image("Hplant")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(.green)
+                    Text("Great!!")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(.primary)
+                    Text("This is a beautiful plant, keep it like this.")
+                        .font(.title)
+                        .foregroundColor(.primary)
+                        .padding()
+                }
+                Spacer()
+                Button("Done") {
+                    // Perform any action here when "I'm done" button is tapped
+                }
+                .frame(width: 300, height: 25)
+                .foregroundColor(.bodyText)
+                .padding()
+                .background(Color.buttonsBackground)
+                .cornerRadius(10)
+                .padding()
+            } else if (plant.lowercased() == "unhealthy") {
+                Spacer()
+                Image("UHplant")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(.red)
+                Text("Oh, Nooo")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                Text("This plant seems sick, please take care of it.")
+                    .font(.title)
+                    .padding()
+                Spacer()
+                Button("Done") {
+                    // Perform any action here when "I'm done" button is tapped
+                }
+                .frame(width: 300, height: 25)
+                .foregroundColor(.bodyText)
+                .padding()
+                .background(Color.buttonsBackground)
+                .cornerRadius(10)
+                .padding()
+            }
+        }
+    }
 }
 
-func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-    // Update UI
+
+struct ActivityIndicatorView: UIViewRepresentable{
+    func makeUIView(context: Context) -> UIActivityIndicatorView {
+        let v = UIActivityIndicatorView(style: .large)
+        v.color = .green
+        v.startAnimating()
+        return v
+    }
+    typealias UIViewType = UIActivityIndicatorView
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
+        
+    }
 }
+extension UIImage {
+    
+    func resizeImageTo(size: CGSize) -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        self.draw(in: CGRect(origin: CGPoint.zero, size: size))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return resizedImage
+    }
+    
+     func convertToBuffer() -> CVPixelBuffer? {
+        
+        let attributes = [
+            kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
+            kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue
+        ] as CFDictionary
+        
+        var pixelBuffer: CVPixelBuffer?
+        
+        let status = CVPixelBufferCreate(
+            kCFAllocatorDefault, Int(self.size.width),
+            Int(self.size.height),
+            kCVPixelFormatType_32ARGB,
+            attributes,
+            &pixelBuffer)
+        
+        guard (status == kCVReturnSuccess) else {
+            return nil
+        }
+        
+        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        
+        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        let context = CGContext(
+            data: pixelData,
+            width: Int(self.size.width),
+            height: Int(self.size.height),
+            bitsPerComponent: 8,
+            bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!),
+            space: rgbColorSpace,
+            bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+        
+        context?.translateBy(x: 0, y: self.size.height)
+        context?.scaleBy(x: 1.0, y: -1.0)
+        
+        UIGraphicsPushContext(context!)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        UIGraphicsPopContext()
+        
+        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        
+        return pixelBuffer
+    }
 }
+
 
 extension Date {
 func formattedString(dateFormat: String) -> String {

@@ -10,6 +10,8 @@ import SwiftUI
 import SwiftData
 
 struct Provider: TimelineProvider {
+    let container = PersistenceController.shared.container
+
     @MainActor func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), checkCards: getChecCards())
     }
@@ -25,14 +27,22 @@ struct Provider: TimelineProvider {
         completion(timeline)
     }
     
-    @MainActor private func getChecCards() -> [CheckCard]{
-        guard let modelContainer = try? ModelContainer(for: CheckCard.self) else {
-            return []
-        }
-        
+//    @MainActor private func getChecCards() -> [CheckCard]{
+//        guard let modelContainer = try? ModelContainer(for: CheckCard.self) else {
+//            return []
+//        }
+//        
+//        let descriptor = FetchDescriptor<CheckCard>()
+//        let checkCards = try? modelContainer.mainContext.fetch(descriptor)
+//        
+//        return checkCards ?? []
+//    }
+    @MainActor func getChecCards()->[CheckCard]{
+//    let predicate = #Predicate<CheckCard>{$0.date >= startDate && $0.date <= endDate}
+//    let descriptor = FetchDescriptor<Day>(predicate: predicate, sortBy: [.init(.date)])
         let descriptor = FetchDescriptor<CheckCard>()
-        let checkCards = try? modelContainer.mainContext.fetch(descriptor)
-        
+        let checkCards = try? container.mainContext.fetch(descriptor)
+        print(checkCards?.count,"🖤")
         return checkCards ?? []
     }
 }
@@ -55,6 +65,7 @@ struct PlantifyWidgetEntryView : View {
                 
                 Spacer()
                 
+                
                 Text("\(entry.checkCards.count)")
                     .font(.system(.title2, design: .rounded) )
                     .bold()
@@ -75,30 +86,37 @@ struct PlantifyWidgetEntryView : View {
                             
                             ForEach(entry.checkCards) { checkCard in
                                 
-                                VStack{
-                                    HStack{
-                                        Button {} label: {
-                                            Circle()
-                                                .stroke(
-                                                    Color.icons,
-                                                    style: StrokeStyle(lineWidth: 2)
-                                                )
-                                                .frame(width: 12)
-                                        }
+            
+            
+                                HStack{
+                                    
+
+
+                                    Button(intent: PlantifyAppIntent(CheckCardName: checkCard.plantName)){
+                                        Circle()
+                                            .stroke(
+                                                Color.icons,
+                                                style: StrokeStyle(lineWidth: 2))
+                                            .frame(width: 15,height: 15, alignment: .top)
+                                    }
+                                    
+                                    
+                                    VStack(alignment: .leading){
+
                                         
                                         Text(checkCard.plantName)
                                             .font(.system(size: 15))
 
-                                    }
-                                    .frame(width: 100, alignment: .leading)
+
                                     
                                     Line()
                                         .stroke(style: .init(dash: [1]))
-                                        .frame(width: 90)
                                         .opacity(0.5)
-                                        .frame(width: 100, alignment: .trailing)
 
+                                    }
+                                    
                                 }
+
                                 
                             }
                         }
