@@ -8,6 +8,7 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 struct MainView: View {
     
@@ -98,6 +99,9 @@ struct MainView: View {
                                         
                                         Button(action: {
                                             wateringDone(checkCard: CheckCard, WateringPerWeek: CheckCard.watering)
+                                            
+                                            WidgetCenter.shared.reloadTimelines(ofKind: "PlantifyWidget")
+
                                             
                                         }, label: {
                                             
@@ -520,7 +524,7 @@ struct MainView: View {
 
                                         successfullyNavigation.toggle()
                                         
-                                        
+                                        WidgetCenter.shared.reloadTimelines(ofKind: "PlantifyWidget")
                                         }
                                     .foregroundColor(.buttonsBackground)
 

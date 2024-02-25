@@ -26,20 +26,9 @@ struct Provider: TimelineProvider {
         let timeline = Timeline(entries: [SimpleEntry(date: .now, checkCards: getChecCards())], policy: .after(.now.advanced(by: 60 * 5)))
         completion(timeline)
     }
-    
-//    @MainActor private func getChecCards() -> [CheckCard]{
-//        guard let modelContainer = try? ModelContainer(for: CheckCard.self) else {
-//            return []
-//        }
-//        
-//        let descriptor = FetchDescriptor<CheckCard>()
-//        let checkCards = try? modelContainer.mainContext.fetch(descriptor)
-//        
-//        return checkCards ?? []
-//    }
+
     @MainActor func getChecCards()->[CheckCard]{
-//    let predicate = #Predicate<CheckCard>{$0.date >= startDate && $0.date <= endDate}
-//    let descriptor = FetchDescriptor<Day>(predicate: predicate, sortBy: [.init(.date)])
+
         let descriptor = FetchDescriptor<CheckCard>()
         let checkCards = try? container.mainContext.fetch(descriptor)
         print(checkCards?.count,"🖤")
@@ -75,9 +64,9 @@ struct PlantifyWidgetEntryView : View {
                         if (entry.checkCards.isEmpty) {
             
                             VStack{
-                                Text("no watering today")
-                                    .font(.system(.title2, design: .rounded) )
-                                    .foregroundStyle(.titleText)
+//                                Text("no watering today")
+//                                    .font(.system(.title2, design: .rounded) )
+//                                    .foregroundStyle(.titleText)
 
                             }
                             .frame(width: 120, height: 70)
@@ -96,9 +85,10 @@ struct PlantifyWidgetEntryView : View {
                                         Circle()
                                             .stroke(
                                                 Color.icons,
-                                                style: StrokeStyle(lineWidth: 2))
+                                                style: StrokeStyle(lineWidth: 1.5))
                                             .frame(width: 15,height: 15, alignment: .top)
                                     }
+                                    .buttonStyle(PlainButtonStyle())
                                     
                                     
                                     VStack(alignment: .leading){
@@ -112,10 +102,12 @@ struct PlantifyWidgetEntryView : View {
                                     Line()
                                         .stroke(style: .init(dash: [1]))
                                         .opacity(0.5)
+                                        .frame(width: 90)
 
                                     }
                                     
                                 }
+                                .frame(width: 90 ,height: 30, alignment: .center)
 
                                 
                             }
@@ -156,5 +148,4 @@ struct PlantifyWidget: Widget {
     PlantifyWidget()
 } timeline: {
     SimpleEntry(date: .now, checkCards : [] )
-//    SimpleEntry(date: .now, checkCards : [] )
 }
