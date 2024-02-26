@@ -359,14 +359,16 @@ struct MainView: View {
     }
     
     func wateringDone(checkCard : CheckCard, WateringPerWeek : Int){
-        checkWatering += 1
-        print("watering progress \(progress)")
-
-        progress = CGFloat(checkWatering) / CGFloat(WateringPerWeek)
-
-        print("watering progress updated \(progress)")
         
-//        if (checkWatering == WateringPerWeek){
+            checkWatering += 1
+            print("watering progress \(progress)")
+            
+            progress = CGFloat(checkWatering) / CGFloat(WateringPerWeek)
+            
+            print("watering progress updated \(progress)")
+            
+            
+            //        if (checkWatering == WateringPerWeek){
             
             
             if let index = checkCards.firstIndex(of: checkCard){
@@ -374,8 +376,7 @@ struct MainView: View {
                 print("card removed\(checkCards)")
             }
             
-//        }
-
+            //        }
     }
 
 
@@ -578,7 +579,6 @@ struct MainView: View {
             
             
             let newCheckCard = CheckCard(plantName: selectedName, plantType: selectedType, watering: selectedWatering)
-            
             
             
             let newPlantCard = PlantCard(PlantName: selectedName, PlantType: selectedType, PotSize: selectedPot, Light: selectedLight, Watering: selectedWatering)

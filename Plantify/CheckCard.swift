@@ -11,6 +11,7 @@ import SwiftData
 @Model
 class CheckCard : Hashable {
 
+    private (set) var checkCardID: String = UUID().uuidString
     var plantName : String
     var plantType : MainView.PlantTypes
     var watering : Int

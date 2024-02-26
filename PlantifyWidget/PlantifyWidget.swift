@@ -81,7 +81,7 @@ struct PlantifyWidgetEntryView : View {
                                     
 
 
-                                    Button(intent: PlantifyAppIntent(CheckCardName: checkCard.plantName)){
+                                    Button(intent: PlantifyAppIntent(CheckCardName : checkCard.plantName)){
                                         Circle()
                                             .stroke(
                                                 Color.icons,

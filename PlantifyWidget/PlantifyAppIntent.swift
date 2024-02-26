@@ -9,7 +9,6 @@ import AppIntents
 import SwiftData
 
 struct PlantifyAppIntent : AppIntent{
-
     
     let container = PersistenceController.shared.container
 
@@ -22,19 +21,19 @@ struct PlantifyAppIntent : AppIntent{
     init(CheckCardName: String) {
         self.CheckCardName = CheckCardName
     }
+
     init() {
         CheckCardName = ""
     }
     
+    @MainActor
     func perform() async throws -> some IntentResult {
         
-        let descriptor = FetchDescriptor<CheckCard>(predicate: #Predicate { checkCard in
-            checkCard.plantName == CheckCardName
-            })
-        var checkCards = try? await container.mainContext.fetch(descriptor)
+        let descriptor = FetchDescriptor<CheckCard>()
+        var checkCards = try? container.mainContext.fetch(descriptor)
         
         if let checkCard = checkCards?.first{
-            checkCards?.removeFirst()
+            container.mainContext.delete(checkCard)
         }
         
         return .result()
