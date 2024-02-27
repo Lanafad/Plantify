@@ -295,9 +295,9 @@ struct EditPlantView: View {
 
 }
 
-// ??
 func loadImage() {
     // Handle image selection
+    
 }
 
 // The CameraView
@@ -314,7 +314,8 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let uiImage = info[.originalImage] as? UIImage {
-            parent.images.append(uiImage) // Append the captured image to the images array
+            parent.images.append(uiImage)
+            // Append the captured image to the images array
         }
         picker.dismiss(animated: true)
     }
